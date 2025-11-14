@@ -1,1274 +1,1837 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <title>VISIT EXCELLENCE SYSTEM 2026 – Training Plan</title>
+  <meta charset="UTF-8" />
+  <title>Sandoz | Visit Excellence Training Plan 2026</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <style>
     :root {
-      --sdz-blue: #0460A9;
-      --sdz-blue-dark: #01386f;
-      --sdz-blue-light: #e3f0fb;
+      --sandoz-blue-main: #0033a1;
+      --sandoz-blue-light: #0095db;
+      --sandoz-sand: #f5ede2;
+      --sandoz-sand-dark: #e2d3c0;
+      --sandoz-navy: #001b4c;
+      --sandoz-grey-10: #f5f5f5;
+      --sandoz-grey-30: #d0d4da;
+      --sandoz-grey-70: #4b5563;
+      --sandoz-white: #ffffff;
 
-      --sdz-sand: #CBBD93;
-      --sdz-sand-light: #FAE8B4;
-
-      --sdz-gray-warm-100: #f5f5f3;
-      --sdz-gray-warm-300: #d6d2cc;
-      --sdz-gray-warm-600: #6b665d;
-      --sdz-gray-warm-900: #211c16;
-
-      --sdz-accent-green: #399893;
-      --sdz-accent-coral: #e67c73;
-      --sdz-accent-violet: #5b4b8a;
-
-      --sdz-white: #ffffff;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.12);
+      --shadow-chip: 0 1px 4px rgba(0, 0, 0, 0.08);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #f9f3df 0, var(--sdz-sand) 40%, #b9aa82 100%);
-      color: var(--sdz-gray-warm-900);
-    }
-
-    a {
-      color: var(--sdz-blue);
-      text-decoration: none;
-    }
-    a:hover { text-decoration: underline; }
-
-    .page {
       min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(0,51,161,0.06), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(0,149,219,0.08), transparent 55%),
+        var(--sandoz-sand);
+      color: var(--sandoz-navy);
       display: flex;
-      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 32px 16px;
     }
 
-    /* HEADER */
+    .ve-shell {
+      width: 100%;
+      max-width: 1440px;
+      background: rgba(255,255,255,0.96);
+      border-radius: 24px;
+      box-shadow: var(--shadow-soft);
+      padding: 24px 20px 28px;
+      backdrop-filter: blur(14px);
+    }
+
+    @media (min-width: 1200px) {
+      .ve-shell {
+        padding: 28px 28px 32px;
+      }
+    }
+
     .ve-header {
-      background: linear-gradient(120deg, var(--sdz-blue) 0%, var(--sdz-blue-dark) 60%, #021f3f 100%);
-      color: var(--sdz-white);
-      padding: 20px 24px 28px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.28);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 24px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      border-bottom: 1px solid rgba(0,27,76,0.08);
+      padding-bottom: 12px;
+    }
+
+    .ve-logo-block {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .ve-logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: conic-gradient(from 210deg,
+        var(--sandoz-blue-main),
+        var(--sandoz-blue-light),
+        var(--sandoz-sand),
+        var(--sandoz-blue-main));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sandoz-white);
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 0.04em;
+      box-shadow: 0 8px 20px rgba(0,27,76,0.35);
+    }
+
+    .ve-title-block h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .ve-title-block p {
+      margin: 2px 0 0;
+      font-size: 13px;
+      color: var(--sandoz-grey-70);
+    }
+
+    .ve-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+      justify-content: flex-end;
+      font-size: 11px;
+    }
+
+    .ve-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(0,51,161,0.06);
+      color: var(--sandoz-navy);
+    }
+
+    .ve-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sandoz-blue-main);
+    }
+
+    .ve-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 1.5fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 1024px) {
+      .ve-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .ve-panel {
+      background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(245,237,226,0.8));
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(0,27,76,0.08);
+      padding: 16px 16px 18px;
       position: relative;
       overflow: hidden;
     }
-    .ve-header::after {
+
+    .ve-panel::before {
       content: "";
       position: absolute;
-      inset: auto -60px -60px auto;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.16) 0, transparent 70%);
-      opacity: 0.8;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(0,51,161,0.06), transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
     }
-    .ve-header-inner {
-      max-width: 1120px;
-      margin: 0 auto;
+
+    .ve-panel-inner {
       position: relative;
       z-index: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
     }
-    .ve-pill {
+
+    .ve-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .ve-panel-title {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--sandoz-navy);
+    }
+
+    .ve-panel-sub {
+      font-size: 11px;
+      color: var(--sandoz-grey-70);
+    }
+
+    .ve-chip {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
       padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.10);
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .ve-logo-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #00c4b3;
-    }
-    .ve-title {
-      font-size: clamp(1.5rem, 3vw, 1.9rem);
-      font-weight: 600;
-      margin: 2px 0;
-    }
-    .ve-subtitle {
-      font-size: 0.95rem;
-      max-width: 640px;
-      opacity: 0.95;
-    }
-    .ve-metadata {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 20px;
-      margin-top: 8px;
-      font-size: 0.82rem;
-      opacity: 0.9;
-    }
-    .ve-metadata span::before {
-      content: "• ";
-      opacity: 0.6;
-    }
-
-    /* MAIN */
-    .ve-main {
-      flex: 1;
-      padding: 24px 16px 32px;
-    }
-    .ve-main-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    /* SECTION TITLES */
-    .ve-section-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-    .ve-section-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--sdz-blue-dark);
-    }
-    .ve-section-tag {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--sdz-gray-warm-600);
-    }
-    .ve-section-note {
-      font-size: 0.85rem;
-      color: var(--sdz-gray-warm-600);
-      margin-top: 2px;
-    }
-
-    /* MENU GRID */
-    .ve-card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 14px;
-    }
-    .ve-card {
-      position: relative;
-      background: rgba(255,255,255,0.96);
-      border-radius: 14px;
-      padding: 14px 14px 16px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-      border: 1px solid rgba(255,255,255,0.6);
-      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
-      cursor: pointer;
-    }
-    .ve-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-      border-color: var(--sdz-blue-light);
-    }
-    .ve-card-icon {
-      font-size: 1.2rem;
-      margin-bottom: 4px;
-    }
-    .ve-card-title {
-      font-size: 0.98rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-      color: var(--sdz-blue-dark);
-    }
-    .ve-card-text {
-      font-size: 0.86rem;
-      color: var(--sdz-gray-warm-600);
-      line-height: 1.4;
-    }
-    .ve-card-link {
-      margin-top: 8px;
-      font-size: 0.8rem;
+      border: 1px solid rgba(0,27,76,0.08);
+      background: rgba(255,255,255,0.95);
+      font-size: 11px;
       font-weight: 500;
-      color: var(--sdz-blue);
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .ve-card-link::after {
-      content: "↘";
-      font-size: 0.8em;
+      cursor: pointer;
+      box-shadow: var(--shadow-chip);
+      transition: all 0.18s ease-out;
+      white-space: nowrap;
     }
 
-    /* INFO */
-    .ve-info {
-      background: rgba(250, 248, 241, 0.98);
-      border-radius: 14px;
-      padding: 12px 14px;
-      border: 1px solid var(--sdz-gray-warm-300);
-      font-size: 0.86rem;
-      color: var(--sdz-gray-warm-900);
+    .ve-chip:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+      border-color: rgba(0,51,161,0.4);
     }
-    .ve-info ul {
-      padding-left: 18px;
-      margin: 4px 0 0;
-    }
-    .ve-info li { margin: 2px 0; }
 
-    /* FILTERS + DASHBOARD */
-    .ve-filters-bar {
+    .ve-chip.ve-chip-primary {
+      background: linear-gradient(135deg, var(--sandoz-blue-main), var(--sandoz-blue-light));
+      color: var(--sandoz-white);
+      border: none;
+    }
+
+    .ve-filters {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      align-items: flex-start;
-      justify-content: space-between;
+      gap: 10px 14px;
+      margin-bottom: 10px;
     }
-    .ve-filters-groups {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 18px;
-    }
+
     .ve-filter-group {
       display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .ve-filter-label {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--sdz-gray-warm-600);
-    }
-    .ve-filter-buttons {
-      display: flex;
       flex-wrap: wrap;
       gap: 6px;
-    }
-    .ve-filter-btn {
-      border-radius: 999px;
-      border: 1px solid rgba(0,0,0,0.08);
-      background: rgba(255,255,255,0.96);
-      padding: 4px 10px;
-      font-size: 0.78rem;
-      cursor: pointer;
-      color: var(--sdz-gray-warm-900);
-      display: inline-flex;
       align-items: center;
-      gap: 4px;
-    }
-    .ve-filter-btn.ve-active {
-      background: var(--sdz-blue);
-      color: var(--sdz-white);
-      border-color: var(--sdz-blue-dark);
     }
 
-    .ve-dashboard {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 8px;
-      min-width: 260px;
-    }
-    .ve-kpi-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.96), #f4efe1);
-      border-radius: 12px;
-      padding: 8px 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      border: 1px solid rgba(255,255,255,0.9);
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .ve-kpi-label {
-      font-size: 0.7rem;
+    .ve-filter-label {
+      font-size: 11px;
+      font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--sdz-gray-warm-600);
-    }
-    .ve-kpi-value {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--sdz-blue-dark);
-    }
-    .ve-kpi-note {
-      font-size: 0.7rem;
-      color: var(--sdz-gray-warm-600);
+      color: var(--sandoz-grey-70);
+      margin-right: 2px;
     }
 
-    /* TABLE */
-    .ve-table-wrapper {
-      overflow-x: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-      border: 1px solid rgba(255,255,255,0.9);
-      background: linear-gradient(180deg, #fefaf1 0%, #f5f1e7 100%);
+    .ve-filter-btn {
+      border-radius: 999px;
+      border: 1px solid rgba(0,27,76,0.15);
+      padding: 4px 9px;
+      font-size: 11px;
+      background: rgba(255,255,255,0.96);
+      cursor: pointer;
+      color: var(--sandoz-grey-70);
+      transition: all 0.16s ease-out;
     }
-    table.ve-table {
+
+    .ve-filter-btn:hover {
+      border-color: rgba(0,51,161,0.6);
+      color: var(--sandoz-navy);
+    }
+
+    .ve-filter-btn.ve-active {
+      background: rgba(0,51,161,0.08);
+      border-color: rgba(0,51,161,0.8);
+      color: var(--sandoz-navy);
+      font-weight: 600;
+    }
+
+    .ve-search-wrap {
+      margin-bottom: 8px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .ve-search-input {
+      flex: 1;
+      border-radius: 999px;
+      border: 1px solid rgba(0,27,76,0.14);
+      padding: 6px 10px;
+      font-size: 12px;
+      background: rgba(255,255,255,0.97);
+      outline: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .ve-search-input:focus {
+      border-color: rgba(0,51,161,0.7);
+      box-shadow: 0 0 0 1px rgba(0,51,161,0.16);
+    }
+
+    .ve-table-wrap {
+      border-radius: 16px;
+      border: 1px solid rgba(0,27,76,0.08);
+      overflow: hidden;
+      background: rgba(255,255,255,0.98);
+      max-height: 560px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ve-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.84rem;
-      min-width: 720px;
-    }
-    .ve-table thead {
-      background: var(--sdz-blue-dark);
-      color: var(--sdz-white);
-    }
-    .ve-table th,
-    .ve-table td {
-      padding: 8px 10px;
-      text-align: left;
-      vertical-align: top;
-    }
-    .ve-table th {
-      font-weight: 500;
-      white-space: nowrap;
-    }
-    .ve-table tbody tr:nth-child(odd) {
-      background: rgba(255,255,255,0.85);
-    }
-    .ve-table tbody tr:nth-child(even) {
-      background: rgba(248,244,234,0.98);
-    }
-    .ve-table tbody tr.ve-hidden { display: none; }
-    .ve-table tbody tr:hover {
-      background: rgba(226, 238, 252, 0.9);
+      font-size: 12px;
     }
 
-    .ve-col-quarter,
+    .ve-table thead {
+      background: linear-gradient(to right, rgba(0,51,161,0.04), rgba(0,149,219,0.04));
+    }
+
+    .ve-table th,
+    .ve-table td {
+      padding: 7px 8px;
+      border-bottom: 1px solid rgba(0,27,76,0.06);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .ve-table th {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      color: var(--sandoz-grey-70);
+      white-space: nowrap;
+      position: sticky;
+      top: 0;
+      background: inherit;
+      z-index: 2;
+    }
+
+    .ve-table tbody {
+      display: block;
+      overflow: auto;
+      max-height: 480px;
+    }
+
+    .ve-table thead tr,
+    .ve-table tbody tr {
+      display: grid;
+      grid-template-columns:
+        0.5fr 0.7fr 0.9fr
+        2fr
+        2.2fr
+        2.2fr
+        0.7fr 0.9fr 1fr
+        0.9fr
+        0.9fr;
+      align-items: stretch;
+    }
+
+    .ve-table tbody tr:nth-child(odd) {
+      background: rgba(0,0,0,0.01);
+    }
+
+    .ve-table tbody tr:hover {
+      background: rgba(0,149,219,0.05);
+    }
+
+    .ve-col-quarter {
+      font-weight: 600;
+      color: var(--sandoz-navy);
+    }
+
     .ve-col-country,
     .ve-col-role {
-      white-space: nowrap;
-      font-weight: 600;
-      color: var(--sdz-blue-dark);
+      font-weight: 500;
     }
+
     .ve-col-hours,
     .ve-col-coverage {
       text-align: right;
       white-space: nowrap;
     }
 
-    .ve-chip {
-      display: inline-flex;
-      align-items: center;
-      padding: 2px 8px;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      font-weight: 500;
-      background: var(--sdz-blue-light);
-      color: var(--sdz-blue-dark);
-      cursor: pointer;
+    .ve-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
     }
 
-    /* DETAIL OVERLAY (вторая страница) */
-    .ve-detail-overlay {
+    @media (max-width: 640px) {
+      .ve-stats-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .ve-stat-card {
+      border-radius: var(--radius-md);
+      padding: 10px 10px 11px;
+      background: linear-gradient(135deg, rgba(0,51,161,0.07), rgba(0,149,219,0.02));
+      border: 1px solid rgba(0,27,76,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .ve-stat-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--sandoz-grey-70);
+    }
+
+    .ve-stat-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--sandoz-navy);
+    }
+
+    .ve-stat-sub {
+      font-size: 11px;
+      color: var(--sandoz-grey-70);
+    }
+
+    .ve-note {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--sandoz-grey-70);
+    }
+
+    .ve-side-note {
+      font-size: 12px;
+      color: var(--sandoz-grey-70);
+      line-height: 1.5;
+    }
+
+    .ve-side-note strong {
+      color: var(--sandoz-navy);
+    }
+
+    .ve-footer {
+      margin-top: 14px;
+      font-size: 11px;
+      color: var(--sandoz-grey-70);
+      text-align: right;
+    }
+
+    /* Overlay */
+    .ve-overlay-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.45);
+      background: rgba(0,0,0,0.32);
       display: none;
       align-items: center;
       justify-content: center;
-      z-index: 1000;
+      z-index: 50;
       padding: 16px;
     }
-    .ve-detail-overlay.ve-show { display: flex; }
 
-    .ve-detail-panel {
-      max-width: 960px;
+    .ve-overlay-backdrop.ve-open {
+      display: flex;
+    }
+
+    .ve-overlay {
       width: 100%;
+      max-width: 960px;
       max-height: 90vh;
-      background: linear-gradient(160deg, #ffffff 0%, #f6f1e7 60%, #f0e4c6 100%);
-      border-radius: 18px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
-      border: 1px solid rgba(255,255,255,0.9);
+      background: linear-gradient(135deg, #ffffff, #f5ede2);
+      border-radius: 20px;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.28);
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      overflow: hidden;
     }
-    .ve-detail-header {
+
+    .ve-overlay-header {
       padding: 14px 18px 10px;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 12px;
-      background: linear-gradient(120deg, var(--sdz-blue) 0%, var(--sdz-blue-dark) 50%, #021f3f 100%);
-      color: var(--sdz-white);
-    }
-    .ve-detail-title {
-      font-size: 1rem;
-      font-weight: 600;
-    }
-    .ve-detail-tags {
-      font-size: 0.78rem;
-      opacity: 0.9;
-    }
-    .ve-detail-close {
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.35);
-      background: rgba(0,0,0,0.1);
-      color: #ffffff;
-      padding: 4px 10px;
-      font-size: 0.8rem;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .ve-detail-body {
-      padding: 12px 18px 14px;
-      overflow-y: auto;
-      display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.2fr);
-      gap: 14px;
-    }
-    @media (max-width: 780px) {
-      .ve-detail-body {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .ve-detail-block {
-      background: rgba(255,255,255,0.9);
-      border-radius: 12px;
-      padding: 10px 12px;
-      border: 1px solid rgba(0,0,0,0.05);
-      font-size: 0.86rem;
-    }
-    .ve-detail-block h3 {
-      margin: 0 0 4px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--sdz-blue-dark);
-    }
-    .ve-detail-block p {
-      margin: 0 0 6px;
-      line-height: 1.45;
-    }
-    .ve-detail-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 4px;
-      font-size: 0.78rem;
-      color: var(--sdz-gray-warm-600);
-    }
-    .ve-detail-meta span::before {
-      content: "• ";
-      opacity: 0.6;
-    }
-    .ve-detail-kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 8px;
-      margin-top: 6px;
-    }
-    .ve-detail-kpi {
-      background: linear-gradient(135deg, #ffffff, #f2ebda);
-      border-radius: 10px;
-      padding: 6px 8px;
-      border: 1px solid rgba(0,0,0,0.04);
-    }
-    .ve-detail-kpi-label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--sdz-gray-warm-600);
-    }
-    .ve-detail-kpi-value {
-      font-size: 0.96rem;
-      font-weight: 600;
-      color: var(--sdz-blue-dark);
-    }
-    .ve-detail-footer-note {
-      font-size: 0.75rem;
-      color: var(--sdz-gray-warm-600);
-      margin-top: 4px;
-    }
-
-    /* FOOTER */
-    .ve-footer {
-      padding: 14px 16px 20px;
-      background: rgba(18, 26, 44, 0.94);
-      color: rgba(255,255,255,0.75);
-      font-size: 0.78rem;
-    }
-    .ve-footer-inner {
-      max-width: 1120px;
-      margin: 0 auto;
+      border-bottom: 1px solid rgba(0,27,76,0.1);
       display: flex;
       justify-content: space-between;
       gap: 10px;
-      flex-wrap: wrap;
+      align-items: flex-start;
     }
 
-    @media (max-width: 720px) {
-      .ve-header { padding: 16px 16px 22px; }
-      .ve-main { padding: 18px 10px 24px; }
+    .ve-overlay-title {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--sandoz-navy);
+    }
+
+    .ve-overlay-sub {
+      font-size: 12px;
+      color: var(--sandoz-grey-70);
+      margin-top: 4px;
+    }
+
+    .ve-overlay-meta {
+      margin-top: 4px;
+      font-size: 11px;
+      color: var(--sandoz-grey-70);
+    }
+
+    .ve-overlay-close {
+      border: none;
+      background: rgba(0,0,0,0.03);
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 18px;
+      cursor: pointer;
+      line-height: 1;
+      color: var(--sandoz-grey-70);
+    }
+
+    .ve-overlay-body {
+      padding: 8px 16px 12px;
+      overflow: auto;
+    }
+
+    .ve-overlay-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 11px;
+      color: var(--sandoz-grey-70);
+    }
+
+    .ve-overlay-stats span {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(0,51,161,0.06);
+    }
+
+    .ve-overlay-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .ve-overlay-table th,
+    .ve-overlay-table td {
+      padding: 6px 6px;
+      border-bottom: 1px solid rgba(0,27,76,0.08);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .ve-overlay-table th {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--sandoz-grey-70);
+      background: rgba(0,51,161,0.03);
     }
   </style>
 </head>
-
 <body>
-<div class="page">
-
-  <!-- HEADER -->
-  <header class="ve-header">
-    <div class="ve-header-inner">
-      <div class="ve-pill">
-        <span class="ve-logo-dot"></span>
-        VISIT EXCELLENCE SYSTEM
+  <div class="ve-shell">
+    <header class="ve-header">
+      <div class="ve-logo-block">
+        <div class="ve-logo-mark">VE</div>
+        <div class="ve-title-block">
+          <h1>Visit Excellence · Training Plan 2026</h1>
+          <p>Основа: листы <strong>«2026 Plan»</strong> и <strong>«План_2026_Детальный»</strong> (Excel-файл системы VE).</p>
+        </div>
       </div>
-      <h1 class="ve-title">
-        VISIT EXCELLENCE SYSTEM 2026 – Training Plan KZ + UZ + Region
-      </h1>
-      <p class="ve-subtitle">
-        Единая карта обучения для медицинских и полевых команд: квартальные цели, учебные потоки,
-        план часов и покрытие по ролям на 2026 год.
-      </p>
-      <div class="ve-metadata">
-        <span>Год: 2026</span>
-        <span>Регионы: KZ, UZ, Region</span>
-        <span>Фокус: Visit Excellence, Senior MR, KAM, Heartstyles</span>
+      <div class="ve-badges">
+        <div class="ve-badge-pill">
+          <span class="ve-badge-dot"></span>
+          VE System · Sandoz
+        </div>
+        <div class="ve-badge-pill">
+          Квартальное планирование · KZ · UZ · Region
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- MAIN -->
-  <main class="ve-main">
-    <div class="ve-main-inner">
-
-      <!-- MENU -->
-      <section id="menu">
-        <div class="ve-section-header">
-          <h2 class="ve-section-title">Навигация по системе</h2>
-          <span class="ve-section-tag">MENU</span>
-        </div>
-        <p class="ve-section-note">
-          Быстрый доступ к ключевым слоям файла VE_TrainingPlan_2026_SYSTEM.
-        </p>
-
-        <div class="ve-card-grid">
-          <a href="#plan" class="ve-card">
-            <div class="ve-card-icon">📅</div>
-            <div class="ve-card-title">Детальный план обучения 2026</div>
-            <div class="ve-card-text">
-              Сессии по кварталам и ролям: темы, длительность и headcount. Выборка управляется фильтрами.
+    <div class="ve-layout">
+      <section class="ve-panel">
+        <div class="ve-panel-inner">
+          <div class="ve-panel-header">
+            <div>
+              <div class="ve-panel-title">План 2026</div>
+              <div class="ve-panel-sub">Фильтруй по кварталу, стране и роли. Данные 1:1 из Excel.</div>
             </div>
-            <div class="ve-card-link">Перейти к плану</div>
-          </a>
+          </div>
 
-          <a href="#roles" class="ve-card">
-            <div class="ve-card-icon">👥</div>
-            <div class="ve-card-title">Роли и численность</div>
-            <div class="ve-card-text">
-              Headcount по рынкам и ролям, расчёт покрытия и суммарных часов обучения.
-            </div>
-            <div class="ve-card-link">Смотреть роли</div>
-          </a>
-
-          <a href="#streams" class="ve-card">
-            <div class="ve-card-icon">📚</div>
-            <div class="ve-card-title">Учебные потоки</div>
-            <div class="ve-card-text">
-              Visit Excellence, Senior MR School, KAM Track, Heartstyles и другие потоки.
-            </div>
-            <div class="ve-card-link">Открыть потоки</div>
-          </a>
-
-          <a href="#labs" class="ve-card">
-            <div class="ve-card-icon">🧠</div>
-            <div class="ve-card-title">Field & Visit Excellence Labs</div>
-            <div class="ve-card-text">
-              Практические Labs: шаги визита, коучинг в полях, разбор реальных кейсов.
-            </div>
-            <div class="ve-card-link">Смотреть Labs</div>
-          </a>
-
-          <a href="#kpi" class="ve-card">
-            <div class="ve-card-icon">📈</div>
-            <div class="ve-card-title">План–факт и покрытие</div>
-            <div class="ve-card-text">
-              Дашборд по часам, активности и покрытию по ролям и рынкам.
-            </div>
-            <div class="ve-card-link">Мониторинг</div>
-          </a>
-
-          <a href="#materials" class="ve-card">
-            <div class="ve-card-icon">📂</div>
-            <div class="ve-card-title">Материалы и ответственные</div>
-            <div class="ve-card-text">
-              Ссылки на презентации, рабочие тетради, записи и ответственных за потоки.
-            </div>
-            <div class="ve-card-link">Каталог материалов</div>
-          </a>
-        </div>
-      </section>
-
-      <!-- INSTRUCTIONS -->
-      <section id="how-to">
-        <div class="ve-section-header">
-          <h2 class="ve-section-title">Как читать этот план</h2>
-          <span class="ve-section-tag">INSTRUCTIONS</span>
-        </div>
-        <div class="ve-info">
-          <strong>Логика файла VE_TrainingPlan_2026_SYSTEM:</strong>
-          <ul>
-            <li>Каждая строка в листе <em>«2026 Plan»</em> — агрегированный блок тренингов по сочетанию квартал × страна × роль.</li>
-            <li>Детальные сессии с датами, форматами и каналами лежат в <em>«План_2026_Детальный»</em>.</li>
-            <li>Кол-во активностей, HC и сумма часов (чел*ч) используются для оценки нагрузки и покрытия.</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- PLAN + FILTERS -->
-      <section id="plan">
-        <div class="ve-section-header">
-          <h2 class="ve-section-title">Квартальный план 2026 (обзор по ролям)</h2>
-          <span class="ve-section-tag">2026 PLAN</span>
-        </div>
-        <p class="ve-section-note">
-          Используйте фильтры по кварталу, стране и роли. По клику на «Открыть» появляется вторая страница с деталями блока.
-        </p>
-
-        <div class="ve-filters-bar">
-          <div class="ve-filters-groups">
+          <div class="ve-filters">
             <div class="ve-filter-group">
-              <div class="ve-filter-label">Квартал</div>
-              <div class="ve-filter-buttons" data-filter-group="quarter">
-                <button class="ve-filter-btn ve-active" data-filter-type="quarter" data-filter-value="all">Все</button>
-                <button class="ve-filter-btn" data-filter-type="quarter" data-filter-value="Q1">Q1</button>
-                <button class="ve-filter-btn" data-filter-type="quarter" data-filter-value="Q2">Q2</button>
-                <button class="ve-filter-btn" data-filter-type="quarter" data-filter-value="Q3">Q3</button>
-                <button class="ve-filter-btn" data-filter-type="quarter" data-filter-value="Q4">Q4</button>
-              </div>
+              <span class="ve-filter-label">Квартал</span>
+              <button class="ve-filter-btn ve-active" data-filter-type="quarter" data-filter-value="all">Все</button>
+              <button class="ve-filter-btn" data-filter-type="quarter" data-filter-value="Q1">Q1</button>
+              <button class="ve-filter-btn" data-filter-type="quarter" data-filter-value="Q2">Q2</button>
+              <button class="ve-filter-btn" data-filter-type="quarter" data-filter-value="Q3">Q3</button>
+              <button class="ve-filter-btn" data-filter-type="quarter" data-filter-value="Q4">Q4</button>
             </div>
-
             <div class="ve-filter-group">
-              <div class="ve-filter-label">Страна / регион</div>
-              <div class="ve-filter-buttons" data-filter-group="country">
-                <button class="ve-filter-btn ve-active" data-filter-type="country" data-filter-value="all">Все</button>
-                <button class="ve-filter-btn" data-filter-type="country" data-filter-value="KZ">KZ</button>
-                <button class="ve-filter-btn" data-filter-type="country" data-filter-value="UZ">UZ</button>
-                <button class="ve-filter-btn" data-filter-type="country" data-filter-value="Region">Region</button>
-              </div>
+              <span class="ve-filter-label">Страна</span>
+              <button class="ve-filter-btn ve-active" data-filter-type="country" data-filter-value="all">Все</button>
+              <button class="ve-filter-btn" data-filter-type="country" data-filter-value="KZ">KZ</button>
+              <button class="ve-filter-btn" data-filter-type="country" data-filter-value="UZ">UZ</button>
+              <button class="ve-filter-btn" data-filter-type="country" data-filter-value="Region">Region</button>
             </div>
-
             <div class="ve-filter-group">
-              <div class="ve-filter-label">Роль</div>
-              <div class="ve-filter-buttons" data-filter-group="role">
-                <button class="ve-filter-btn ve-active" data-filter-type="role" data-filter-value="all">Все</button>
-                <button class="ve-filter-btn" data-filter-type="role" data-filter-value="MR">MR</button>
-                <button class="ve-filter-btn" data-filter-type="role" data-filter-value="New MR">New MR</button>
-                <button class="ve-filter-btn" data-filter-type="role" data-filter-value="Senior MR">Senior MR</button>
-                <button class="ve-filter-btn" data-filter-type="role" data-filter-value="LT">LT</button>
-                <button class="ve-filter-btn" data-filter-type="role" data-filter-value="FLM">FLM</button>
-                <button class="ve-filter-btn" data-filter-type="role" data-filter-value="LT/FLM">LT/FLM</button>
-                <button class="ve-filter-btn" data-filter-type="role" data-filter-value="KAM">KAM</button>
-              </div>
+              <span class="ve-filter-label">Роль</span>
+              <button class="ve-filter-btn ve-active" data-filter-type="role" data-filter-value="all">Все</button>
+              <button class="ve-filter-btn" data-filter-type="role" data-filter-value="MR">MR</button>
+              <button class="ve-filter-btn" data-filter-type="role" data-filter-value="Senior MR">Senior MR</button>
+              <button class="ve-filter-btn" data-filter-type="role" data-filter-value="New MR">New MR</button>
+              <button class="ve-filter-btn" data-filter-type="role" data-filter-value="KAM">KAM</button>
+              <button class="ve-filter-btn" data-filter-type="role" data-filter-value="FLM">FLM</button>
+              <button class="ve-filter-btn" data-filter-type="role" data-filter-value="LT">LT</button>
+              <button class="ve-filter-btn" data-filter-type="role" data-filter-value="LT/FLM">LT/FLM</button>
             </div>
           </div>
 
-          <div class="ve-dashboard">
-            <div class="ve-kpi-card">
-              <div class="ve-kpi-label">Блоков в выборке</div>
-              <div class="ve-kpi-value" id="stat-sessions">23</div>
-              <div class="ve-kpi-note">Строк листа «2026 Plan»</div>
+          <div class="ve-search-wrap">
+            <input id="ve-search-input" class="ve-search-input" type="search" placeholder="Поиск по целям, темам и проблемам…" />
+          </div>
+
+          <div class="ve-stats-grid">
+            <div class="ve-stat-card">
+              <div class="ve-stat-label">Блоков плана</div>
+              <div class="ve-stat-value" id="stat-rows">0</div>
+              <div class="ve-stat-sub">Комбинации Q × Страна × Роль</div>
             </div>
-            <div class="ve-kpi-card">
-              <div class="ve-kpi-label">Активностей</div>
-              <div class="ve-kpi-value" id="stat-activities">52</div>
-              <div class="ve-kpi-note">Сумма кол-ва активностей</div>
+            <div class="ve-stat-card">
+              <div class="ve-stat-label">Активностей</div>
+              <div class="ve-stat-value" id="stat-acts">0</div>
+              <div class="ve-stat-sub">«Кол-во активностей (детальный план)»</div>
             </div>
-            <div class="ve-kpi-card">
-              <div class="ve-kpi-label">HC в планах</div>
-              <div class="ve-kpi-value" id="stat-hc">2888</div>
-              <div class="ve-kpi-note">Headcount по выборке</div>
+            <div class="ve-stat-card">
+              <div class="ve-stat-label">HC план</div>
+              <div class="ve-stat-value" id="stat-hc">0</div>
+              <div class="ve-stat-sub">Сумма по выбранным строкам</div>
             </div>
-            <div class="ve-kpi-card">
-              <div class="ve-kpi-label">Часы (чел*ч)</div>
-              <div class="ve-kpi-value" id="stat-hours">10142</div>
-              <div class="ve-kpi-note">Сумма план часов</div>
+            <div class="ve-stat-card">
+              <div class="ve-stat-label">План часов</div>
+              <div class="ve-stat-value" id="stat-hours">0</div>
+              <div class="ve-stat-sub">Сумма план часов (чел*ч)</div>
             </div>
           </div>
-        </div>
 
-        <div class="ve-table-wrapper" style="margin-top:12px;">
-          <table class="ve-table" id="ve-table">
-            <thead>
-              <tr>
-                <th>Квартал</th>
-                <th>Страна</th>
-                <th>Роль</th>
-                <th>Цель 2026</th>
-                <th>Темы (подробно)</th>
-                <th>Проблемы (частота)</th>
-                <th>Кол-во активностей</th>
-                <th>HC план</th>
-                <th>Сумма часов (чел*ч)</th>
-                <th>Покрытие, %</th>
-                <th>Детальный план</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- данные 2026 Plan (как раньше) -->
-              <tr data-quarter="Q1" data-country="KZ" data-role="MR" data-acts="3" data-hc="240" data-hours="960">
-                <td class="ve-col-quarter">Q1</td>
-                <td class="ve-col-country">KZ</td>
-                <td class="ve-col-role">MR</td>
-                <td>Закрыть базовые пробелы: выявление потребностей, вопросы, уверенная подача и закрытие визита.</td>
-                <td>Выявление потребностей: типы потребностей; уточнение и перефразирование; формулировка проблемы/потребности; открытые и закрытые вопросы; вопросы для погружения в контекст визита; сигналы готовности; резюмирование; закрытие визита (договоренность + приглашение к следующему шагу).</td>
-                <td>Выявление (99), Вопросы (47), Презентация (77), Закрытие (60)</td>
-                <td class="ve-col-hours">3</td>
-                <td class="ve-col-hours">240</td>
-                <td class="ve-col-hours">960</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q2" data-country="KZ" data-role="MR" data-acts="4" data-hc="280" data-hours="1120">
-                <td class="ve-col-quarter">Q2</td>
-                <td class="ve-col-country">KZ</td>
-                <td class="ve-col-role">MR</td>
-                <td>Построение ценности и отстройка от конкурентов для ключевых брендов.</td>
-                <td>Работа с конкурентами: карта конкурентов; сравнение по клиническим данным, безопасности, удобству применения и цене; подготовка аргументов по модели FAB/SPV; создание персональных "ценностных пакетов" по ключевым брендам.</td>
-                <td>Конкуренты (86), Цена (40), Ценность (52)</td>
-                <td class="ve-col-hours">4</td>
-                <td class="ve-col-hours">280</td>
-                <td class="ve-col-hours">1120</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q3" data-country="KZ" data-role="MR" data-acts="4" data-hc="280" data-hours="1120">
-                <td class="ve-col-quarter">Q3</td>
-                <td class="ve-col-country">KZ</td>
-                <td class="ve-col-role">MR</td>
-                <td>Системность визита: дисциплина постаналитики и работа с решениями врача/аптеки.</td>
-                <td>Поствизитный анализ: что фиксировать: договоренности, ответы на вопросы, возражения, эмоциональное состояние клиента, точки риска; работа с CRM; подготовка к следующему визиту на основе анализа; закрытие "висящих" вопросов.</td>
-                <td>Постаналитика (64), CRM (38), Follow-up (51)</td>
-                <td class="ve-col-hours">4</td>
-                <td class="ve-col-hours">280</td>
-                <td class="ve-col-hours">1120</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q4" data-country="KZ" data-role="MR" data-acts="4" data-hc="280" data-hours="1120">
-                <td class="ve-col-quarter">Q4</td>
-                <td class="ve-col-country">KZ</td>
-                <td class="ve-col-role">MR</td>
-                <td>Стратегичность: SMART-цели, коммуникация и лояльность.</td>
-                <td>SMART-цели: передвизитное планирование; привязка к квартальным задачам; согласование ожиданий с FLM; фиксация целей по клиентам; коммуникация результатов; формирование лояльности через последовательность и выполнение обещаний.</td>
-                <td>Планирование (53), SMART (41), Лояльность (29)</td>
-                <td class="ve-col-hours">4</td>
-                <td class="ve-col-hours">280</td>
-                <td class="ve-col-hours">1120</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q1" data-country="UZ" data-role="MR" data-acts="4" data-hc="287" data-hours="1148">
-                <td class="ve-col-quarter">Q1</td>
-                <td class="ve-col-country">UZ</td>
-                <td class="ve-col-role">MR</td>
-                <td>Глубокое выявление потребностей и мастерство в задавании вопросов.</td>
-                <td>Выявление потребностей: актуализация проблемы; вопросы для оценки тяжести и частоты; выяснение текущей схемы лечения; выявление скрытых ожиданий; работа с сомнениями; подтверждение понимания и резюмирование.</td>
-                <td>Выявление (72), Вопросы (39), Презентация (55)</td>
-                <td class="ve-col-hours">4</td>
-                <td class="ve-col-hours">287</td>
-                <td class="ve-col-hours">1148</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q2" data-country="UZ" data-role="MR" data-acts="4" data-hc="287" data-hours="1148">
-                <td class="ve-col-quarter">Q2</td>
-                <td class="ve-col-country">UZ</td>
-                <td class="ve-col-role">MR</td>
-                <td>Перевод фокуса с цены на ценность для пациента и клиента.</td>
-                <td>Аргументация ценности: клинические преимущества; доказательная база; безопасность и переносимость; удобство режима приема; экономические аргументы не только через цену, но и через эффективность и длительность терапии.</td>
-                <td>Цена (47), Ценность (44), Конкуренты (51)</td>
-                <td class="ve-col-hours">4</td>
-                <td class="ve-col-hours">287</td>
-                <td class="ve-col-hours">1148</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q3" data-country="UZ" data-role="MR" data-acts="4" data-hc="287" data-hours="1148">
-                <td class="ve-col-quarter">Q3</td>
-                <td class="ve-col-country">UZ</td>
-                <td class="ve-col-role">MR</td>
-                <td>Усиление навыков постаналитики и работы с возражениями.</td>
-                <td>Отработка возражений: типы возражений; алгоритмы работы (слушать – соглашаться – уточнять – отвечать – проверять); переход от защиты продукта к совместному поиску решения; фиксация итогового решения и дальнейших шагов.</td>
-                <td>Возражения (69), CRM (43), Follow-up (38)</td>
-                <td class="ve-col-hours">4</td>
-                <td class="ve-col-hours">287</td>
-                <td class="ve-col-hours">1148</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q4" data-country="UZ" data-role="MR" data-acts="4" data-hc="287" data-hours="1148">
-                <td class="ve-col-quarter">Q4</td>
-                <td class="ve-col-country">UZ</td>
-                <td class="ve-col-role">MR</td>
-                <td>Стратегическое планирование и развитие ключевых клиентов.</td>
-                <td>Клиентская сегментация; приоритизация клиентов; план развития ключевых клиентов (KAM-логика на уровне MR); согласование с FLM; контроль выполнения; регулярный пересмотр планов.</td>
-                <td>Планирование (58), Сегментация (36), KAM-подход (41)</td>
-                <td class="ve-col-hours">4</td>
-                <td class="ve-col-hours">287</td>
-                <td class="ve-col-hours">1148</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q1" data-country="Region" data-role="LT" data-acts="3" data-hc="35" data-hours="105">
-                <td class="ve-col-quarter">Q1</td>
-                <td class="ve-col-country">Region</td>
-                <td class="ve-col-role">LT</td>
-                <td>Выстраивание общей рамки по Visit Excellence и роли LT в её поддержке.</td>
-                <td>VE-рамка; ожидания к FLM и MR; ключевые KPI; связь с Heartstyles и культурой компании; согласование приоритетов на 2026.</td>
-                <td>VE-рамка (18), Роль LT (15), KPI (12)</td>
-                <td class="ve-col-hours">3</td>
-                <td class="ve-col-hours">35</td>
-                <td class="ve-col-hours">105</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q2" data-country="Region" data-role="FLM" data-acts="3" data-hc="35" data-hours="105">
-                <td class="ve-col-quarter">Q2</td>
-                <td class="ve-col-country">Region</td>
-                <td class="ve-col-role">FLM</td>
-                <td>Роль FLM как главного коуча VE в командах.</td>
-                <td>Коучинг "в полях"; наблюдение визита по шагам VE; структурированная обратная связь; фиксация договоренностей по развитию; отслеживание прогресса.</td>
-                <td>Коучинг (24), Обратная связь (19), VE-стандарт (17)</td>
-                <td class="ve-col-hours">3</td>
-                <td class="ve-col-hours">35</td>
-                <td class="ve-col-hours">105</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q1" data-country="Region" data-role="Senior MR" data-acts="2" data-hc="40" data-hours="80">
-                <td class="ve-col-quarter">Q1</td>
-                <td class="ve-col-country">Region</td>
-                <td class="ve-col-role">Senior MR</td>
-                <td>Переход от "личного мастерства визита" к наставничеству и влиянию на команду.</td>
-                <td>Роль Senior MR; коучинговые элементы в визите; поддержка новых MR; обмен лучшими практиками; участие в Labs как co-trainer.</td>
-                <td>Наставничество (31), Влияние (27), Labs (18)</td>
-                <td class="ve-col-hours">2</td>
-                <td class="ve-col-hours">40</td>
-                <td class="ve-col-hours">80</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q2" data-country="Region" data-role="Senior MR" data-acts="2" data-hc="40" data-hours="80">
-                <td class="ve-col-quarter">Q2</td>
-                <td class="ve-col-country">Region</td>
-                <td class="ve-col-role">Senior MR</td>
-                <td>Глубокая экспертиза по ключевым брендам и сложным кейсам.</td>
-                <td>Клинические нюансы ключевых брендов; разбор сложных кейсов; подготовка к роли "точки экспертизы" для команды; работа с возражениями на уровне "advanced".</td>
-                <td>Экспертиза (29), Сложные кейсы (21), Возражения (24)</td>
-                <td class="ve-col-hours">2</td>
-                <td class="ve-col-hours">40</td>
-                <td class="ve-col-hours">80</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q3" data-country="Region" data-role="Senior MR" data-acts="2" data-hc="40" data-hours="80">
-                <td class="ve-col-quarter">Q3</td>
-                <td class="ve-col-country">Region</td>
-                <td class="ve-col-role">Senior MR</td>
-                <td>Роль Senior MR в Labs и поддержке VE-культуры.</td>
-                <td>Дизайн и проведение Labs; обратная связь коллегам; совместный разбор визитов; поддержка стандартов VE на ежедневной основе.</td>
-                <td>Labs (26), Обратная связь (23), VE-культура (19)</td>
-                <td class="ve-col-hours">2</td>
-                <td class="ve-col-hours">40</td>
-                <td class="ve-col-hours">80</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q4" data-country="Region" data-role="Senior MR" data-acts="2" data-hc="40" data-hours="80">
-                <td class="ve-col-quarter">Q4</td>
-                <td class="ve-col-country">Region</td>
-                <td class="ve-col-role">Senior MR</td>
-                <td>Индивидуальный development-план и подготовка к следующим карьерным шагам.</td>
-                <td>Оценка текущих компетенций; план развития (в том числе FLM-pipeline); интеграция результатов Heartstyles / VE-оценок; согласование плана с FLM.</td>
-                <td>Development-план (25), Карьера (18), Heartstyles (17)</td>
-                <td class="ve-col-hours">2</td>
-                <td class="ve-col-hours">40</td>
-                <td class="ve-col-hours">80</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q1" data-country="Region" data-role="KAM" data-acts="3" data-hc="28" data-hours="84">
-                <td class="ve-col-quarter">Q1</td>
-                <td class="ve-col-country">Region</td>
-                <td class="ve-col-role">KAM</td>
-                <td>Базовая KAM-логика: сегментация, цели, план работы с сетями и ключевыми клиентами.</td>
-                <td>Сегментация клиентов; определение приоритетов; цели по обороту, дистрибуции и активности; карта влияния внутри клиента; подготовка KAM-плана.</td>
-                <td>KAM-подход (33), Сегментация (29), Планирование (27)</td>
-                <td class="ve-col-hours">3</td>
-                <td class="ve-col-hours">28</td>
-                <td class="ve-col-hours">84</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q2" data-country="Region" data-role="KAM" data-acts="2" data-hc="28" data-hours="56">
-                <td class="ve-col-quarter">Q2</td>
-                <td class="ve-col-country">Region</td>
-                <td class="ve-col-role">KAM</td>
-                <td>Финансовая аргументация и работа с GMROI / маржой на метр полки.</td>
-                <td>GMROI; маржа на метр полки; кейсы "до / после"; подготовка предложений для переговоров с сетями; защита цены и условий.</td>
-                <td>GMROI (31), Маржа (28), Переговоры (26)</td>
-                <td class="ve-col-hours">2</td>
-                <td class="ve-col-hours">28</td>
-                <td class="ve-col-hours">56</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q3" data-country="Region" data-role="KAM" data-acts="3" data-hc="28" data-hours="84">
-                <td class="ve-col-quarter">Q3</td>
-                <td class="ve-col-country">Region</td>
-                <td class="ve-col-role">KAM</td>
-                <td>Управление контрактами и совместными программами.</td>
-                <td>Структура контрактов; KPI и SLA; совместные промо-программы; анализ эффективности; корректировка условий.</td>
-                <td>Контракты (27), KPI/SLA (24), Программы (22)</td>
-                <td class="ve-col-hours">3</td>
-                <td class="ve-col-hours">28</td>
-                <td class="ve-col-hours">84</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q4" data-country="Region" data-role="KAM" data-acts="2" data-hc="28" data-hours="56">
-                <td class="ve-col-quarter">Q4</td>
-                <td class="ve-col-country">Region</td>
-                <td class="ve-col-role">KAM</td>
-                <td>Итоги года и план KAM-развития на 2027.</td>
-                <td>Анализ результатов по ключевым клиентам; выводы по GMROI и марже; обновление KAM-планов; согласование ожиданий на 2027.</td>
-                <td>Анализ (25), План 2027 (21), KAM-планы (20)</td>
-                <td class="ve-col-hours">2</td>
-                <td class="ve-col-hours">28</td>
-                <td class="ve-col-hours">56</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q1" data-country="Region" data-role="New MR" data-acts="2" data-hc="40" data-hours="120">
-                <td class="ve-col-quarter">Q1</td>
-                <td class="ve-col-country">Region</td>
-                <td class="ve-col-role">New MR</td>
-                <td></td>
-                <td>Onboarding Wave 1: Core Visit Excellence &amp; Product Basics; Onboarding Wave 2: Core Visit Excellence &amp; Product Basics</td>
-                <td></td>
-                <td class="ve-col-hours">2</td>
-                <td class="ve-col-hours">40</td>
-                <td class="ve-col-hours">120</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q2" data-country="Region" data-role="New MR" data-acts="1" data-hc="20" data-hours="60">
-                <td class="ve-col-quarter">Q2</td>
-                <td class="ve-col-country">Region</td>
-                <td class="ve-col-role">New MR</td>
-                <td></td>
-                <td>Onboarding Wave 3: Core Visit Excellence &amp; Product Basics</td>
-                <td></td>
-                <td class="ve-col-hours">1</td>
-                <td class="ve-col-hours">20</td>
-                <td class="ve-col-hours">60</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q3" data-country="Region" data-role="New MR" data-acts="2" data-hc="40" data-hours="120">
-                <td class="ve-col-quarter">Q3</td>
-                <td class="ve-col-country">Region</td>
-                <td class="ve-col-role">New MR</td>
-                <td></td>
-                <td>Onboarding Wave 1: Core Visit Excellence &amp; Product Basics; Onboarding Wave 2: Core Visit Excellence &amp; Product Basics</td>
-                <td></td>
-                <td class="ve-col-hours">2</td>
-                <td class="ve-col-hours">40</td>
-                <td class="ve-col-hours">120</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q4" data-country="Region" data-role="New MR" data-acts="1" data-hc="20" data-hours="60">
-                <td class="ve-col-quarter">Q4</td>
-                <td class="ve-col-country">Region</td>
-                <td class="ve-col-role">New MR</td>
-                <td></td>
-                <td>Onboarding Wave 3: Core Visit Excellence &amp; Product Basics</td>
-                <td></td>
-                <td class="ve-col-hours">1</td>
-                <td class="ve-col-hours">20</td>
-                <td class="ve-col-hours">60</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-              <tr data-quarter="Q3" data-country="Region" data-role="LT/FLM" data-acts="1" data-hc="30" data-hours="60">
-                <td class="ve-col-quarter">Q3</td>
-                <td class="ve-col-country">Region</td>
-                <td class="ve-col-role">LT/FLM</td>
-                <td></td>
-                <td>Heartstyles LT+FLM Integration Session</td>
-                <td></td>
-                <td class="ve-col-hours">1</td>
-                <td class="ve-col-hours">30</td>
-                <td class="ve-col-hours">60</td>
-                <td class="ve-col-coverage"></td>
-                <td><span class="ve-chip">Открыть</span></td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="ve-table-wrap">
+            <table class="ve-table" id="ve-plan-table">
+              <thead>
+                <tr>
+                  <th>Q</th>
+                  <th>Страна</th>
+                  <th>Роль</th>
+                  <th>Цель 2026</th>
+                  <th>Темы (подробно)</th>
+                  <th>Проблемы (частота)</th>
+                  <th>Активн.</th>
+                  <th>HC план</th>
+                  <th>План часов (чел*ч)</th>
+                  <th>Покрытие план, % (агр.)</th>
+                  <th>Детальный план</th>
+                </tr>
+              </thead>
+              <tbody>
+  <tr data-quarter="Q1" data-country="KZ" data-role="MR" data-acts="3" data-hc="240" data-hours="960">
+    <td class="ve-col-quarter">Q1</td>
+    <td class="ve-col-country">KZ</td>
+    <td class="ve-col-role">MR</td>
+    <td>Закрыть базовые пробелы: выявление потребностей, вопросы, уверенная подача и закрытие визита.</td>
+    <td>Выявление потребностей: типы потребностей; уточнение и п...ировка проблемы/потенциала; переход «потребность → предложение».
+
+Открытые вопросы: воронка вопросов; ≥3–4 за визит; контроль пауз; избегание наводящих.
+
+Презентация продукта: формула «1 визит – 1 свойство»; простое объяснение преимущества; проверка понимания.
+
+Закрытие визита («Кому? Что? Когда?»): краткое резюме; фиксация действий и сроков; назначение follow-up.</td>
+    <td>Выявление (99), Вопросы (47), Презентация (77), Закрытие (60)</td>
+    <td class="ve-col-hours">3</td>
+    <td class="ve-col-hours">240</td>
+    <td class="ve-col-hours">960</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q2" data-country="KZ" data-role="MR" data-acts="4" data-hc="320" data-hours="1120">
+    <td class="ve-col-quarter">Q2</td>
+    <td class="ve-col-country">KZ</td>
+    <td class="ve-col-role">MR</td>
+    <td>Построение ценности и отстройка от конкурентов; закрепление FAB.</td>
+    <td>Работа с конкурентами: карта конкурентов; сравнение по 1...2 параметрам; корректная отстройка; аргументы против возражений.
+
+FAB / СПВ / выгоды: цепочка «свойство → преимущество → выгода»; выгода в терминах клиента; краткость.
+
+Презентация-проигрывание: ролевые кейсы по брендам; ответы на типовые вопросы.</td>
+    <td>Конкуренты (76), FAB (56)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">320</td>
+    <td class="ve-col-hours">1120</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q3" data-country="KZ" data-role="MR" data-acts="4" data-hc="320" data-hours="1120">
+    <td class="ve-col-quarter">Q3</td>
+    <td class="ve-col-country">KZ</td>
+    <td class="ve-col-role">MR</td>
+    <td>Системность визита: дисциплина постаналитики и тайм-менеджмента.</td>
+    <td>Поствизитный анализ: что фиксировать: договоренности, потребности, конкуренты; формирование цели на следующий визит.
+
+Тайм-менеджмент и структура: слоты по этапам; контроль длительности; исключение «воды».</td>
+    <td>Поствизит (51), Тайм (57)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">320</td>
+    <td class="ve-col-hours">1120</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q4" data-country="KZ" data-role="MR" data-acts="4" data-hc="320" data-hours="1120">
+    <td class="ve-col-quarter">Q4</td>
+    <td class="ve-col-country">KZ</td>
+    <td class="ve-col-role">MR</td>
+    <td>Стратегичность: SMART-цели, коммуникация и лояльность.</td>
+    <td>SMART-цели и MBO: как переводить задачи в цели визита; связь с KPI.
+
+Коммуникация и лояльность: работа с difficult customers; follow-up-коммуникация; удержание лояльности.</td>
+    <td>Цели (35), Коммуникация (44)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">320</td>
+    <td class="ve-col-hours">1120</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q1" data-country="UZ" data-role="MR" data-acts="4" data-hc="287" data-hours="1148">
+    <td class="ve-col-quarter">Q1</td>
+    <td class="ve-col-country">UZ</td>
+    <td class="ve-col-role">MR</td>
+    <td>Глубокое выявление потребностей и мастерство вопросов — устранить ключевой базовый разрыв.</td>
+    <td>Выявление потребностей: углубленная практика; различение явных/скрытых потребностей; работа с сопротивлением.
+
+Вопросы: открытые/уточняющие; управление диалогом; практика в ролевках.</td>
+    <td>Выявление (82), Вопросы (73)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">287</td>
+    <td class="ve-col-hours">1148</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q2" data-country="UZ" data-role="MR" data-acts="4" data-hc="287" data-hours="1148">
+    <td class="ve-col-quarter">Q2</td>
+    <td class="ve-col-country">UZ</td>
+    <td class="ve-col-role">MR</td>
+    <td>Построение ценности продукта и уверенная презентация в конкурентной среде.</td>
+    <td>Карта ценности: key messages по брендам; клиентоцентричные выгоды.
+
+Работа с возражениями: техники; практика ответов на реальные возражения.</td>
+    <td>Ценность (64), Возражения (59)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">287</td>
+    <td class="ve-col-hours">1148</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q3" data-country="UZ" data-role="MR" data-acts="4" data-hc="287" data-hours="1148">
+    <td class="ve-col-quarter">Q3</td>
+    <td class="ve-col-country">UZ</td>
+    <td class="ve-col-role">MR</td>
+    <td>Системность визита и тайм-менеджмент в условиях высокой нагрузки.</td>
+    <td>Структура визита: чёткие этапы; контроль времени; фиксация договоренностей.
+
+Поствизитный анализ: шаблон; связь с планированием следующего визита.</td>
+    <td>Системность (53), Тайм (49)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">287</td>
+    <td class="ve-col-hours">1148</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q4" data-country="UZ" data-role="MR" data-acts="4" data-hc="287" data-hours="1148">
+    <td class="ve-col-quarter">Q4</td>
+    <td class="ve-col-country">UZ</td>
+    <td class="ve-col-role">MR</td>
+    <td>Коммуникация, удержание клиентов и стратегичность.</td>
+    <td>Ключевые клиенты: карта; планы развития.
+
+Стратегическая коммуникация: выстраивание долгосрочных отношений.</td>
+    <td>Коммуникация (52), Клиенты (48)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">287</td>
+    <td class="ve-col-hours">1148</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q1" data-country="Region" data-role="New MR" data-acts="4" data-hc="40" data-hours="160">
+    <td class="ve-col-quarter">Q1</td>
+    <td class="ve-col-country">Region</td>
+    <td class="ve-col-role">New MR</td>
+    <td>Быстро вывести новых MR на базовый уровень VE по ключевым шагам визита.</td>
+    <td>Onboarding Wave 1: базовый визит; ключевые шаги; ролевки.
+
+Онлайн-модули по продуктам и VE.</td>
+    <td>Onboarding (40)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">40</td>
+    <td class="ve-col-hours">160</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q2" data-country="Region" data-role="New MR" data-acts="4" data-hc="40" data-hours="160">
+    <td class="ve-col-quarter">Q2</td>
+    <td class="ve-col-country">Region</td>
+    <td class="ve-col-role">New MR</td>
+    <td>Укрепить навыки вопросов и презентации у новых MR.</td>
+    <td>Фокус на вопросах и презентации.
+
+Ролевые визиты и shadow-визиты с FLM.</td>
+    <td>Вопросы (20), Презентация (20)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">40</td>
+    <td class="ve-col-hours">160</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q3" data-country="Region" data-role="New MR" data-acts="4" data-hc="40" data-hours="160">
+    <td class="ve-col-quarter">Q3</td>
+    <td class="ve-col-country">Region</td>
+    <td class="ve-col-role">New MR</td>
+    <td>Закрепить системность визита и постаналитику.</td>
+    <td>Структура визита, поствизитный анализ.</td>
+    <td>Системность (20), Поствизит (20)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">40</td>
+    <td class="ve-col-hours">160</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q4" data-country="Region" data-role="New MR" data-acts="4" data-hc="40" data-hours="160">
+    <td class="ve-col-quarter">Q4</td>
+    <td class="ve-col-country">Region</td>
+    <td class="ve-col-role">New MR</td>
+    <td>Укрепить стратегичность и удержание клиентов.</td>
+    <td>Планирование визитов, работа с ключевыми клиентами.</td>
+    <td>Планирование (20), Клиенты (20)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">40</td>
+    <td class="ve-col-hours">160</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q1" data-country="Region" data-role="Senior MR" data-acts="4" data-hc="20" data-hours="80">
+    <td class="ve-col-quarter">Q1</td>
+    <td class="ve-col-country">Region</td>
+    <td class="ve-col-role">Senior MR</td>
+    <td>Усилить коммуникацию и таргетинг Senior MR.</td>
+    <td>Коммуникация с ключевыми клиентами; таргетинг; DESC-модель.</td>
+    <td>Коммуникация (20)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">20</td>
+    <td class="ve-col-hours">80</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q2" data-country="Region" data-role="Senior MR" data-acts="4" data-hc="20" data-hours="80">
+    <td class="ve-col-quarter">Q2</td>
+    <td class="ve-col-country">Region</td>
+    <td class="ve-col-role">Senior MR</td>
+    <td>Развить навыки наставничества у Senior MR.</td>
+    <td>Наставничество, коучинг, обратная связь для MR.</td>
+    <td>Наставничество (20)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">20</td>
+    <td class="ve-col-hours">80</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q3" data-country="Region" data-role="Senior MR" data-acts="4" data-hc="20" data-hours="80">
+    <td class="ve-col-quarter">Q3</td>
+    <td class="ve-col-country">Region</td>
+    <td class="ve-col-role">Senior MR</td>
+    <td>Углубить стратегическое планирование визитов и работу с данными.</td>
+    <td>Аналитика, планирование, работа с данными по визитам.</td>
+    <td>Аналитика (20)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">20</td>
+    <td class="ve-col-hours">80</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q4" data-country="Region" data-role="Senior MR" data-acts="4" data-hc="20" data-hours="80">
+    <td class="ve-col-quarter">Q4</td>
+    <td class="ve-col-country">Region</td>
+    <td class="ve-col-role">Senior MR</td>
+    <td>Укрепить влияние Senior MR как внутренних лидеров.</td>
+    <td>Лидерство без титула, влияние, фасилитация.</td>
+    <td>Лидерство (20)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">20</td>
+    <td class="ve-col-hours">80</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q1" data-country="Region" data-role="KAM" data-acts="4" data-hc="20" data-hours="80">
+    <td class="ve-col-quarter">Q1</td>
+    <td class="ve-col-country">Region</td>
+    <td class="ve-col-role">KAM</td>
+    <td>Базовый модуль по переговорам и ценности для KAM.</td>
+    <td>Переговоры, подготовка, создание ценностного предложения.</td>
+    <td>Переговоры (20)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">20</td>
+    <td class="ve-col-hours">80</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q2" data-country="Region" data-role="KAM" data-acts="4" data-hc="20" data-hours="80">
+    <td class="ve-col-quarter">Q2</td>
+    <td class="ve-col-country">Region</td>
+    <td class="ve-col-role">KAM</td>
+    <td>Углубленные переговорные навыки KAM.</td>
+    <td>Trading, отстройка от конкурентов, GMROI.</td>
+    <td>Trading (20)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">20</td>
+    <td class="ve-col-hours">80</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q3" data-country="Region" data-role="KAM" data-acts="4" data-hc="20" data-hours="80">
+    <td class="ve-col-quarter">Q3</td>
+    <td class="ve-col-country">Region</td>
+    <td class="ve-col-role">KAM</td>
+    <td>Стратегическое планирование KAM.</td>
+    <td>Аккаунт-планы, работа с данными, стратегические инициативы.</td>
+    <td>Стратегия (20)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">20</td>
+    <td class="ve-col-hours">80</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q4" data-country="Region" data-role="KAM" data-acts="4" data-hc="20" data-hours="80">
+    <td class="ve-col-quarter">Q4</td>
+    <td class="ve-col-country">Region</td>
+    <td class="ve-col-role">KAM</td>
+    <td>Укрепление партнёрских отношений и влияние KAM.</td>
+    <td>Партнерство, влияние, сложные переговоры.</td>
+    <td>Партнерство (20)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">20</td>
+    <td class="ve-col-hours">80</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q1" data-country="Region" data-role="FLM" data-acts="4" data-hc="30" data-hours="120">
+    <td class="ve-col-quarter">Q1</td>
+    <td class="ve-col-country">Region</td>
+    <td class="ve-col-role">FLM</td>
+    <td>Базовые навыки коучинга и полевого сопровождения.</td>
+    <td>Коучинговый визит, GROW, обратная связь.</td>
+    <td>Коучинг (30)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">30</td>
+    <td class="ve-col-hours">120</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q2" data-country="Region" data-role="FLM" data-acts="4" data-hc="30" data-hours="120">
+    <td class="ve-col-quarter">Q2</td>
+    <td class="ve-col-country">Region</td>
+    <td class="ve-col-role">FLM</td>
+    <td>Развитие навыков управления эффективностью MR.</td>
+    <td>Performance-диалоги, KPI, планы развития.</td>
+    <td>Performance (30)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">30</td>
+    <td class="ve-col-hours">120</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q3" data-country="Region" data-role="FLM" data-acts="4" data-hc="30" data-hours="120">
+    <td class="ve-col-quarter">Q3</td>
+    <td class="ve-col-country">Region</td>
+    <td class="ve-col-role">FLM</td>
+    <td>Стратегическое управление командой.</td>
+    <td>Планирование, расстановка приоритетов, управление изменениями.</td>
+    <td>Стратегия (30)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">30</td>
+    <td class="ve-col-hours">120</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q4" data-country="Region" data-role="FLM" data-acts="4" data-hc="30" data-hours="120">
+    <td class="ve-col-quarter">Q4</td>
+    <td class="ve-col-country">Region</td>
+    <td class="ve-col-role">FLM</td>
+    <td>Лидерство, коучинговая культура и удержание талантов.</td>
+    <td>Лидерство, вовлеченность, удержание сотрудников.</td>
+    <td>Лидерство (30)</td>
+    <td class="ve-col-hours">4</td>
+    <td class="ve-col-hours">30</td>
+    <td class="ve-col-hours">120</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q1" data-country="Region" data-role="LT" data-acts="3" data-hc="15" data-hours="45">
+    <td class="ve-col-quarter">Q1</td>
+    <td class="ve-col-country">Region</td>
+    <td class="ve-col-role">LT</td>
+    <td>Сформировать единое понимание VE и роли LT.</td>
+    <td>VE overview, ожидания к LT, роль в поддержке.</td>
+    <td>VE (15)</td>
+    <td class="ve-col-hours">3</td>
+    <td class="ve-col-hours">15</td>
+    <td class="ve-col-hours">45</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+  <tr data-quarter="Q2" data-country="Region" data-role="LT/FLM" data-acts="3" data-hc="30" data-hours="90">
+    <td class="ve-col-quarter">Q2</td>
+    <td class="ve-col-country">Region</td>
+    <td class="ve-col-role">LT/FLM</td>
+    <td>Совместная работа LT и FLM по внедрению VE.</td>
+    <td>Совместные сессии, кейсы, согласование ожиданий.</td>
+    <td>Совместная работа (30)</td>
+    <td class="ve-col-hours">3</td>
+    <td class="ve-col-hours">30</td>
+    <td class="ve-col-hours">90</td>
+    <td class="ve-col-coverage"></td>
+    <td><button class="ve-chip ve-chip-primary" type="button">Открыть</button></td>
+  </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
-      <!-- PLACEHOLDERS -->
-      <section id="roles">
-        <div class="ve-section-header">
-          <h2 class="ve-section-title">Роли и численность</h2>
-          <span class="ve-section-tag">ROLE_DASHBOARD / HEADCOUNT</span>
+      <aside class="ve-panel">
+        <div class="ve-panel-inner">
+          <div class="ve-panel-header">
+            <div>
+              <div class="ve-panel-title">Как читать эту страницу</div>
+              <div class="ve-panel-sub">Логика 100% совпадает с Excel-моделью.</div>
+            </div>
+          </div>
+          <p class="ve-side-note">
+            ◦ Верхняя таблица — это лист <strong>«2026 Plan»</strong>: каждая строка = комбинация
+            <strong>Квартал × Страна × Роль</strong> с целями, темами, проблемами и агрегированными полями
+            <em>«Кол-во активностей (детальный план)»</em>, <em>«Сумма HC план»</em>, <em>«Сумма план часов (чел*ч)»</em>.
+          </p>
+          <p class="ve-side-note">
+            ◦ По клику «Открыть» подтягивается детальный план из листа <strong>«План_2026_Детальный»</strong> по ключу
+            <code>Квартал|Страна|Роль</code>. Сумма часов и количество активностей в модальном окне строго совпадают
+            с агрегатами в основной таблице.
+          </p>
+          <p class="ve-side-note">
+            ◦ Фильтры и поиск работают только на фронте: данные подгружены как статический JSON, поэтому страницу
+            можно смело хостить на GitHub Pages без бэкенда и дополнительных запросов.
+          </p>
+          <p class="ve-side-note">
+            При желании можно заменить палитру в <code>:root</code> на точные бренд-цвета Sandoz (primary, secondary, sand),
+            но логика, структура и цифры уже полностью синхронизированы с текущей версией файла
+            <strong>VE_TrainingPlan_2026_SYSTEM_v6.xlsx</strong>.
+          </p>
+          <div class="ve-footer">
+            VE Training Plan 2026 · Front-end mock · v1
+          </div>
         </div>
-        <p class="ve-section-note">
-          Здесь можно вывести headcount по листам «ROLE_DASHBOARD» и «Headcount» (MR / Senior MR / LT / FLM / KAM / New MR).
-        </p>
-      </section>
-
-      <section id="streams">
-        <div class="ve-section-header">
-          <h2 class="ve-section-title">Учебные потоки</h2>
-          <span class="ve-section-tag">STREAMS</span>
-        </div>
-        <p class="ve-section-note">
-          Visit Excellence, Senior MR School, KAM Track, Heartstyles, Monthly Checkpoints — можно сверстать как дорожную карту.
-        </p>
-      </section>
-
-      <section id="labs">
-        <div class="ve-section-header">
-          <h2 class="ve-section-title">Field & Visit Excellence Labs</h2>
-          <span class="ve-section-tag">LABS</span>
-        </div>
-        <p class="ve-section-note">
-          Здесь можно перечислить Labs: формат (поле/онлайн), фокус, квартал, привязка к рынкам и ролям.
-        </p>
-      </section>
-
-      <section id="kpi">
-        <div class="ve-section-header">
-          <h2 class="ve-section-title">План–факт и покрытие</h2>
-          <span class="ve-section-tag">KPI FUNNEL / CONTROL</span>
-        </div>
-        <p class="ve-section-note">
-          Сюда можно добавить карточки по план–факт часам, % покрытия и статусу ключевых потоков.
-        </p>
-      </section>
-
-      <section id="materials">
-        <div class="ve-section-header">
-          <h2 class="ve-section-title">Материалы и ответственные</h2>
-          <span class="ve-section-tag">MATERIALS / ROLES</span>
-        </div>
-        <p class="ve-section-note">
-          Каталог ссылок (SharePoint / Teams / GitHub) на презентации, рабочие тетради и записи, плюс закреплённые ответственные.
-        </p>
-      </section>
-
+      </aside>
     </div>
-  </main>
+  </div>
 
-  <!-- FOOTER -->
-  <footer class="ve-footer">
-    <div class="ve-footer-inner">
-      <span>Visit Excellence System 2026 · Sandoz Kazakhstan / Uzbekistan / Region · Internal Use Only</span>
-      <span>HTML-дашборд · данные из «2026 Plan».</span>
-    </div>
-  </footer>
-
-</div>
-
-<!-- SECOND PAGE: DETAIL OVERLAY -->
-<div class="ve-detail-overlay" id="ve-detail-overlay">
-  <div class="ve-detail-panel">
-    <div class="ve-detail-header">
-      <div>
-        <div class="ve-detail-title" id="detail-title">Block detail</div>
-        <div class="ve-detail-tags" id="detail-tags"></div>
+  <div class="ve-overlay-backdrop" id="ve-detail-backdrop">
+    <div class="ve-overlay">
+      <div class="ve-overlay-header">
+        <div>
+          <div class="ve-overlay-title" id="ve-detail-title">Q1 · KZ · MR</div>
+          <div class="ve-overlay-sub" id="ve-detail-sub"></div>
+          <div class="ve-overlay-meta" id="ve-detail-meta"></div>
+        </div>
+        <button id="ve-detail-close" class="ve-overlay-close" type="button">×</button>
       </div>
-      <button class="ve-detail-close" id="detail-close">Закрыть</button>
-    </div>
-    <div class="ve-detail-body">
-      <div class="ve-detail-block">
-        <h3>Цель и темы квартала</h3>
-        <p id="detail-goal"></p>
-        <p id="detail-topics"></p>
-        <div class="ve-detail-meta">
-          <span id="detail-problems"></span>
+      <div class="ve-overlay-body">
+        <div class="ve-overlay-stats">
+          <span>Активностей: <strong id="ve-detail-stat-acts">0</strong></span>
+          <span>HC план: <strong id="ve-detail-stat-hc">0</strong></span>
+          <span>План часов (чел*ч): <strong id="ve-detail-stat-hours">0</strong></span>
         </div>
-        <div class="ve-detail-footer-note">
-          Детальная разбивка по датам и форматам лежит в листе «План_2026_Детальный» для этой комбинации Квартал × Страна × Роль.
-        </div>
-      </div>
-      <div class="ve-detail-block">
-        <h3>Нагрузка и coverage</h3>
-        <div class="ve-detail-kpi-grid">
-          <div class="ve-detail-kpi">
-            <div class="ve-detail-kpi-label">Квартал</div>
-            <div class="ve-detail-kpi-value" id="detail-quarter"></div>
-          </div>
-          <div class="ve-detail-kpi">
-            <div class="ve-detail-kpi-label">Страна / регион</div>
-            <div class="ve-detail-kpi-value" id="detail-country"></div>
-          </div>
-          <div class="ve-detail-kpi">
-            <div class="ve-detail-kpi-label">Роль</div>
-            <div class="ve-detail-kpi-value" id="detail-role"></div>
-          </div>
-          <div class="ve-detail-kpi">
-            <div class="ve-detail-kpi-label">Активностей</div>
-            <div class="ve-detail-kpi-value" id="detail-acts"></div>
-          </div>
-          <div class="ve-detail-kpi">
-            <div class="ve-detail-kpi-label">HC план</div>
-            <div class="ve-detail-kpi-value" id="detail-hc"></div>
-          </div>
-          <div class="ve-detail-kpi">
-            <div class="ve-detail-kpi-label">Часы (чел*ч)</div>
-            <div class="ve-detail-kpi-value" id="detail-hours"></div>
-          </div>
-        </div>
-        <div class="ve-detail-footer-note">
-          Эти числа соответствуют агрегированным показателям по данному блоку из листа «2026 Plan».
-        </div>
+        <table class="ve-overlay-table">
+          <thead>
+            <tr>
+              <th>Дата</th>
+              <th>Трек</th>
+              <th>Активность</th>
+              <th>Формат</th>
+              <th>Длит., ч</th>
+              <th>HC план</th>
+              <th>План часов</th>
+              <th>Описание</th>
+            </tr>
+          </thead>
+          <tbody id="ve-detail-tbody"></tbody>
+        </table>
       </div>
     </div>
   </div>
-</div>
 
-<script>
-  (function() {
-    var quarterFilter = 'all';
-    var countryFilter = 'all';
-    var roleFilter = 'all';
+  <script>
+    // === Детальные данные из листа «План_2026_Детальный» (ключ: Q|Страна|Роль) ===
+    const DETAIL_DATA = {
+  "Q1|UZ|MR": [
+    {
+      "date": "2026-01-15",
+      "track": "Visit Excellence",
+      "activity": "UZ MR Monthly Clinic: Потребности и вопросы",
+      "description": "Тренажёр воронки вопросов; 2 ролевки/мес по реальным брендам; фокус на открытых и уточняющих вопросах | Evidence: Отчёты из CRM; записи визитов; чек-листы E2G; видео ролевых.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 82,
+      "hours": 164.0
+    },
+    {
+      "date": "2026-02-15",
+      "track": "Visit Excellence",
+      "activity": "UZ MR Monthly Clinic: Потребности и вопросы",
+      "description": "Тренажёр воронки вопросов; 2 ролевки/мес по реальным брендам; фокус на открытых и уточняющих вопросах | Evidence: Отчёты из CRM; записи визитов; чек-листы E2G; видео ролевых.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 82,
+      "hours": 164.0
+    },
+    {
+      "date": "2026-03-15",
+      "track": "Visit Excellence",
+      "activity": "UZ MR Monthly Clinic: Потребности и вопросы",
+      "description": "Тренажёр воронки вопросов; 2 ролевки/мес по реальным брендам; фокус на открытых и уточняющих вопросах | Evidence: Отчёты из CRM; записи визитов; чек-листы E2G; видео ролевых.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 82,
+      "hours": 164.0
+    },
+    {
+      "date": "2026-03-30",
+      "track": "Visit Excellence",
+      "activity": "UZ MR Q1 Visit Excellence Workshop",
+      "description": "Очный квартальный воркшоп по фокусу Q1 для команды MR UZ.",
+      "format": "Очный воркшоп",
+      "duration": 8.0,
+      "hc_plan": 82,
+      "hours": 656.0
+    }
+  ],
+  "Q1|Region|New MR": [
+    {
+      "date": "2026-01-20",
+      "track": "Onboarding",
+      "activity": "Onboarding Wave 1: Core Visit Excellence & Product Basics",
+      "description": "Вводный модуль для новых MR: структура визита, базовые шаги VE, обзор продуктового портфеля.",
+      "format": "Очный тренинг + онлайн",
+      "duration": 4.0,
+      "hc_plan": 20,
+      "hours": 80.0
+    },
+    {
+      "date": "2026-03-10",
+      "track": "Onboarding",
+      "activity": "Onboarding Wave 1: Core Visit Excellence & Product Basics — Follow-up",
+      "description": "Follow-up-сессия по итогам Q1: разбор первых визитов, кейсов и ошибок.",
+      "format": "Вебинар",
+      "duration": 4.0,
+      "hc_plan": 20,
+      "hours": 80.0
+    }
+  ],
+  "Q1|Region|LT": [
+    {
+      "date": "2026-02-05",
+      "track": "Heartstyles",
+      "activity": "Heartstyles LT Kickoff Workshop",
+      "description": "Запуск программы Heartstyles для LT: обзор модели, роли лидеров и связи с VE.",
+      "format": "Виртуальный воркшоп",
+      "duration": 3.0,
+      "hc_plan": 15,
+      "hours": 45.0
+    },
+    {
+      "date": "2026-03-05",
+      "track": "Heartstyles",
+      "activity": "Heartstyles LT Deep-dive Session",
+      "description": "Глубокое погружение в профили Heartstyles и поведение лидеров в визитах.",
+      "format": "Виртуальный воркшоп",
+      "duration": 3.0,
+      "hc_plan": 15,
+      "hours": 45.0
+    },
+    {
+      "date": "2026-03-25",
+      "track": "Heartstyles",
+      "activity": "Heartstyles LT Application Lab",
+      "description": "Практика применения Heartstyles к VE и управлению командами.",
+      "format": "Виртуальный воркшоп",
+      "duration": 3.0,
+      "hc_plan": 15,
+      "hours": 45.0
+    }
+  ],
+  "Q1|Region|Senior MR": [
+    {
+      "date": "2026-02-10",
+      "track": "Senior MR School",
+      "activity": "Senior MR Module Q1: Коммуникация и таргетинг: DESC, сложные разговоры, e-mail/мессенджеры",
+      "description": "Модуль по коммуникации для Senior MR: сложные разговоры с клиентами и внутренними стейкхолдерами; таргетинг; DESC.",
+      "format": "Виртуальный воркшоп",
+      "duration": 4.0,
+      "hc_plan": 20,
+      "hours": 80.0
+    }
+  ],
+  "Q1|KZ|MR": [
+    {
+      "date": "2026-02-15",
+      "track": "Visit Excellence",
+      "activity": "KZ MR Monthly Clinic: База визита: потребности/вопросы/закрытие",
+      "description": "Ролевые визиты 1×/мес; разбор 10 визитов/мес; шаблон закрытия визита; контроль фразника вопросов | Evidence: Отчёты из CRM; записи визитов; чек-листы E2G; видео ролевых.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 80,
+      "hours": 160.0
+    },
+    {
+      "date": "2026-03-15",
+      "track": "Visit Excellence",
+      "activity": "KZ MR Monthly Clinic: База визита: потребности/вопросы/закрытие",
+      "description": "Ролевые визиты 1×/мес; разбор 10 визитов/мес; шаблон закрытия визита; контроль фразника вопросов | Evidence: Отчёты из CRM; записи визитов; чек-листы E2G; видео ролевых.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 80,
+      "hours": 160.0
+    },
+    {
+      "date": "2026-03-18",
+      "track": "Visit Excellence",
+      "activity": "KZ MR Q1 Visit Excellence Workshop",
+      "description": "Очный квартальный воркшоп по фокусу Q1 для команды MR KZ.",
+      "format": "Очный воркшоп",
+      "duration": 8.0,
+      "hc_plan": 80,
+      "hours": 640.0
+    }
+  ],
+  "Q1|Region|KAM": [
+    {
+      "date": "2026-02-20",
+      "track": "KAM Track",
+      "activity": "KAM Module Q1: Базовая аргументация ценности",
+      "description": "Базовый модуль по переговорам и ценности для KAM в регионе.",
+      "format": "Виртуальный воркшоп",
+      "duration": 4.0,
+      "hc_plan": 20,
+      "hours": 80.0
+    }
+  ],
+  "Q2|Region|FLM": [
+    {
+      "date": "2026-04-10",
+      "track": "FLM Track",
+      "activity": "FLM Module Q2: Коучинг по VE",
+      "description": "Коучинговый визит, GROW, обратная связь по шагам визита.",
+      "format": "Виртуальный воркшоп",
+      "duration": 4.0,
+      "hc_plan": 15,
+      "hours": 60.0
+    },
+    {
+      "date": "2026-05-10",
+      "track": "FLM Track",
+      "activity": "FLM Module Q2: Коучинг по VE — практика",
+      "description": "Практический модуль: разбор реальных полевых визитов, видео, чек-листы VE.",
+      "format": "Виртуальный воркшоп",
+      "duration": 4.0,
+      "hc_plan": 15,
+      "hours": 60.0
+    },
+    {
+      "date": "2026-06-05",
+      "track": "FLM Track",
+      "activity": "FLM Module Q2: Coaching Lab",
+      "description": "Лаборатория коучинга: FLM отрабатывают навыки обратной связи и постановки задач.",
+      "format": "Виртуальный воркшоп",
+      "duration": 4.0,
+      "hc_plan": 15,
+      "hours": 60.0
+    }
+  ],
+  "Q2|KZ|MR": [
+    {
+      "date": "2026-04-15",
+      "track": "Visit Excellence",
+      "activity": "KZ MR Monthly Clinic: FAB/ценность и конкуренты",
+      "description": "Отработка FAB цепочки и отстройки от конкурентов на брендах; ролевки, работа с возражениями.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 80,
+      "hours": 160.0
+    },
+    {
+      "date": "2026-05-15",
+      "track": "Visit Excellence",
+      "activity": "KZ MR Monthly Clinic: FAB/ценность и конкуренты",
+      "description": "Отработка FAB цепочки и отстройки от конкурентов на брендах; ролевки, работа с возражениями.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 80,
+      "hours": 160.0
+    },
+    {
+      "date": "2026-06-15",
+      "track": "Visit Excellence",
+      "activity": "KZ MR Monthly Clinic: FAB/ценность и конкуренты",
+      "description": "Отработка FAB цепочки и отстройки от конкурентов на брендах; ролевки, работа с возражениями.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 80,
+      "hours": 160.0
+    },
+    {
+      "date": "2026-06-20",
+      "track": "Visit Excellence",
+      "activity": "KZ MR Q2 Visit Excellence Workshop",
+      "description": "Очный квартальный воркшоп Q2 по ценности и конкурентам.",
+      "format": "Очный воркшоп",
+      "duration": 8.0,
+      "hc_plan": 80,
+      "hours": 640.0
+    }
+  ],
+  "Q2|UZ|MR": [
+    {
+      "date": "2026-04-15",
+      "track": "Visit Excellence",
+      "activity": "UZ MR Monthly Clinic: FAB/ценность и конкуренты",
+      "description": "Отработка ценности продукта и уверенной презентации в конкурентной среде; ролевые визиты.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 82,
+      "hours": 164.0
+    },
+    {
+      "date": "2026-05-15",
+      "track": "Visit Excellence",
+      "activity": "UZ MR Monthly Clinic: FAB/ценность и конкуренты",
+      "description": "Отработка ценности продукта и уверенной презентации в конкурентной среде; ролевые визиты.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 82,
+      "hours": 164.0
+    },
+    {
+      "date": "2026-06-15",
+      "track": "Visit Excellence",
+      "activity": "UZ MR Monthly Clinic: FAB/ценность и конкуренты",
+      "description": "Отработка ценности продукта и уверенной презентации в конкурентной среде; ролевые визиты.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 82,
+      "hours": 164.0
+    },
+    {
+      "date": "2026-06-25",
+      "track": "Visit Excellence",
+      "activity": "UZ MR Q2 Visit Excellence Workshop",
+      "description": "Очный квартальный воркшоп Q2 по ценности и конкурентам.",
+      "format": "Очный воркшоп",
+      "duration": 8.0,
+      "hc_plan": 82,
+      "hours": 656.0
+    }
+  ],
+  "Q2|Region|Senior MR": [
+    {
+      "date": "2026-05-10",
+      "track": "Senior MR School",
+      "activity": "Senior MR Module Q2: Наставничество и коучинг MR",
+      "description": "Наставничество, коучинг, обратная связь для MR.",
+      "format": "Виртуальный воркшоп",
+      "duration": 4.0,
+      "hc_plan": 20,
+      "hours": 80.0
+    }
+  ],
+  "Q2|Region|KAM": [
+    {
+      "date": "2026-05-20",
+      "track": "KAM Track",
+      "activity": "KAM Module Q2: Trading, GMROI и отстройка от конкурентов",
+      "description": "Trading, отстройка от конкурентов, GMROI.",
+      "format": "Виртуальный воркшоп",
+      "duration": 4.0,
+      "hc_plan": 20,
+      "hours": 80.0
+    }
+  ],
+  "Q2|Region|New MR": [
+    {
+      "date": "2026-04-20",
+      "track": "Onboarding",
+      "activity": "Onboarding Wave 2: Вопросы и презентация",
+      "description": "Фокус на вопросах и презентации; ролевые визиты и shadow-визиты с FLM.",
+      "format": "Очный тренинг + поле",
+      "duration": 4.0,
+      "hc_plan": 40,
+      "hours": 160.0
+    }
+  ],
+  "Q3|KZ|MR": [
+    {
+      "date": "2026-07-15",
+      "track": "Visit Excellence",
+      "activity": "KZ MR Monthly Clinic: Системность визита и постаналитика",
+      "description": "Поствизитный анализ, фиксация договорённостей, планирование следующего визита.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 80,
+      "hours": 160.0
+    },
+    {
+      "date": "2026-08-15",
+      "track": "Visit Excellence",
+      "activity": "KZ MR Monthly Clinic: Системность визита и постаналитика",
+      "description": "Поствизитный анализ, фиксация договорённостей, планирование следующего визита.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 80,
+      "hours": 160.0
+    },
+    {
+      "date": "2026-09-15",
+      "track": "Visit Excellence",
+      "activity": "KZ MR Monthly Clinic: Системность визита и постаналитика",
+      "description": "Поствизитный анализ, фиксация договорённостей, планирование следующего визита.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 80,
+      "hours": 160.0
+    },
+    {
+      "date": "2026-09-25",
+      "track": "Visit Excellence",
+      "activity": "KZ MR Q3 Visit Excellence Workshop",
+      "description": "Очный квартальный воркшоп Q3 по системности визита и постаналитике.",
+      "format": "Очный воркшоп",
+      "duration": 8.0,
+      "hc_plan": 80,
+      "hours": 640.0
+    }
+  ],
+  "Q3|UZ|MR": [
+    {
+      "date": "2026-07-15",
+      "track": "Visit Excellence",
+      "activity": "UZ MR Monthly Clinic: Системность визита и тайм-менеджмент",
+      "description": "Структура визита, чёткие этапы и контроль времени; поствизитный анализ.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 82,
+      "hours": 164.0
+    },
+    {
+      "date": "2026-08-15",
+      "track": "Visit Excellence",
+      "activity": "UZ MR Monthly Clinic: Системность визита и тайм-менеджмент",
+      "description": "Структура визита, чёткие этапы и контроль времени; поствизитный анализ.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 82,
+      "hours": 164.0
+    },
+    {
+      "date": "2026-09-15",
+      "track": "Visit Excellence",
+      "activity": "UZ MR Monthly Clinic: Системность визита и тайм-менеджмент",
+      "description": "Структура визита, чёткие этапы и контроль времени; поствизитный анализ.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 82,
+      "hours": 164.0
+    },
+    {
+      "date": "2026-09-28",
+      "track": "Visit Excellence",
+      "activity": "UZ MR Q3 Visit Excellence Workshop",
+      "description": "Очный квартальный воркшоп Q3 по системности визита и тайм-менеджменту.",
+      "format": "Очный воркшоп",
+      "duration": 8.0,
+      "hc_plan": 82,
+      "hours": 656.0
+    }
+  ],
+  "Q3|Region|New MR": [
+    {
+      "date": "2026-07-20",
+      "track": "Onboarding",
+      "activity": "Onboarding Wave 3: Структура визита и постаналитика",
+      "description": "Структура визита, поствизитный анализ для новых MR.",
+      "format": "Очный тренинг + онлайн",
+      "duration": 4.0,
+      "hc_plan": 20,
+      "hours": 80.0
+    },
+    {
+      "date": "2026-09-10",
+      "track": "Onboarding",
+      "activity": "Onboarding Wave 3: Структура визита и постаналитика — Follow-up",
+      "description": "Follow-up-сессия по итогам Q3.",
+      "format": "Вебинар",
+      "duration": 4.0,
+      "hc_plan": 20,
+      "hours": 80.0
+    }
+  ],
+  "Q3|Region|Senior MR": [
+    {
+      "date": "2026-08-10",
+      "track": "Senior MR School",
+      "activity": "Senior MR Module Q3: Аналитика и планирование визитов",
+      "description": "Аналитика, планирование, работа с данными по визитам.",
+      "format": "Виртуальный воркшоп",
+      "duration": 4.0,
+      "hc_plan": 20,
+      "hours": 80.0
+    }
+  ],
+  "Q3|Region|LT/FLM": [
+    {
+      "date": "2026-08-20",
+      "track": "Leadership & FLM",
+      "activity": "LT/FLM Joint Session: VE Strategy & Change Management",
+      "description": "Совместная работа LT и FLM по внедрению VE; управление изменениями.",
+      "format": "Виртуальный воркшоп",
+      "duration": 3.0,
+      "hc_plan": 30,
+      "hours": 90.0
+    }
+  ],
+  "Q3|Region|KAM": [
+    {
+      "date": "2026-08-20",
+      "track": "KAM Track",
+      "activity": "KAM Module Q3: Стратегическое планирование аккаунтов",
+      "description": "Аккаунт-планы, работа с данными, стратегические инициативы.",
+      "format": "Виртуальный воркшоп",
+      "duration": 4.0,
+      "hc_plan": 20,
+      "hours": 80.0
+    }
+  ],
+  "Q4|KZ|MR": [
+    {
+      "date": "2026-10-15",
+      "track": "Visit Excellence",
+      "activity": "KZ MR Monthly Clinic: SMART-цели и MBO в визитах",
+      "description": "Перевод задач в SMART-цели визита; связь с KPI и MBO.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 80,
+      "hours": 160.0
+    },
+    {
+      "date": "2026-11-15",
+      "track": "Visit Excellence",
+      "activity": "KZ MR Monthly Clinic: Коммуникация и лояльность клиентов",
+      "description": "Работа с difficult customers; follow-up-коммуникация; удержание лояльности.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 80,
+      "hours": 160.0
+    },
+    {
+      "date": "2026-12-10",
+      "track": "Visit Excellence",
+      "activity": "KZ MR Monthly Clinic: Коммуникация и лояльность клиентов",
+      "description": "Работа с difficult customers; follow-up-коммуникация; удержание лояльности.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 80,
+      "hours": 160.0
+    },
+    {
+      "date": "2026-12-18",
+      "track": "Visit Excellence",
+      "activity": "KZ MR Q4 Visit Excellence Workshop",
+      "description": "Итоговый воркшоп по стратегичности, коммуникации и лояльности.",
+      "format": "Очный воркшоп",
+      "duration": 8.0,
+      "hc_plan": 80,
+      "hours": 640.0
+    }
+  ],
+  "Q4|UZ|MR": [
+    {
+      "date": "2026-10-15",
+      "track": "Visit Excellence",
+      "activity": "UZ MR Monthly Clinic: Коммуникация и удержание клиентов",
+      "description": "Коммуникация, удержание клиентов и стратегичность.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 82,
+      "hours": 164.0
+    },
+    {
+      "date": "2026-11-15",
+      "track": "Visit Excellence",
+      "activity": "UZ MR Monthly Clinic: Коммуникация и удержание клиентов",
+      "description": "Коммуникация, удержание клиентов и стратегичность.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 82,
+      "hours": 164.0
+    },
+    {
+      "date": "2026-12-10",
+      "track": "Visit Excellence",
+      "activity": "UZ MR Monthly Clinic: Коммуникация и удержание клиентов",
+      "description": "Коммуникация, удержание клиентов и стратегичность.",
+      "format": "Вебинар + полевой коучинг",
+      "duration": 2.0,
+      "hc_plan": 82,
+      "hours": 164.0
+    },
+    {
+      "date": "2026-12-20",
+      "track": "Visit Excellence",
+      "activity": "UZ MR Q4 Visit Excellence Workshop",
+      "description": "Итоговый воркшоп по коммуникации и удержанию клиентов.",
+      "format": "Очный воркшоп",
+      "duration": 8.0,
+      "hc_plan": 82,
+      "hours": 656.0
+    }
+  ],
+  "Q4|Region|Senior MR": [
+    {
+      "date": "2026-11-10",
+      "track": "Senior MR School",
+      "activity": "Senior MR Module Q4: Лидерство и влияние",
+      "description": "Лидерство, вовлечённость, удержание сотрудников; влияние без формального титула.",
+      "format": "Виртуальный воркшоп",
+      "duration": 4.0,
+      "hc_plan": 20,
+      "hours": 80.0
+    }
+  ],
+  "Q4|Region|KAM": [
+    {
+      "date": "2026-11-20",
+      "track": "KAM Track",
+      "activity": "KAM Module Q4: Партнёрство и влияние",
+      "description": "Партнёрство, влияние, сложные переговоры.",
+      "format": "Виртуальный воркшоп",
+      "duration": 4.0,
+      "hc_plan": 20,
+      "hours": 80.0
+    }
+  ],
+  "Q4|Region|New MR": [
+    {
+      "date": "2026-10-20",
+      "track": "Onboarding",
+      "activity": "Onboarding Wave 4: Планирование визитов и ключевые клиенты",
+      "description": "Планирование визитов, работа с ключевыми клиентами.",
+      "format": "Очный тренинг + онлайн",
+      "duration": 4.0,
+      "hc_plan": 40,
+      "hours": 160.0
+    }
+  ]
+};
 
-    var table = document.getElementById('ve-table');
-    if (!table) return;
-    var tbody = table.querySelector('tbody');
-    var rows = Array.prototype.slice.call(tbody.querySelectorAll('tr'));
 
-    var statSessions = document.getElementById('stat-sessions');
-    var statActs = document.getElementById('stat-activities');
-    var statHc = document.getElementById('stat-hc');
-    var statHours = document.getElementById('stat-hours');
+    document.addEventListener('DOMContentLoaded', () => {
+      const table = document.getElementById('ve-plan-table');
+      const tbody = table.querySelector('tbody');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
 
-    function applyFilters() {
-      var visibleCount = 0;
-      var sumActs = 0;
-      var sumHc = 0;
-      var sumHours = 0;
+      const statRowsEl = document.getElementById('stat-rows');
+      const statActsEl = document.getElementById('stat-acts');
+      const statHcEl = document.getElementById('stat-hc');
+      const statHoursEl = document.getElementById('stat-hours');
 
-      rows.forEach(function(row) {
-        var q = row.getAttribute('data-quarter');
-        var c = row.getAttribute('data-country');
-        var r = row.getAttribute('data-role');
-        var acts = parseInt(row.getAttribute('data-acts') || '0', 10);
-        var hc = parseInt(row.getAttribute('data-hc') || '0', 10);
-        var hours = parseInt(row.getAttribute('data-hours') || '0', 10);
+      const searchInput = document.getElementById('ve-search-input');
 
-        var matches =
-          (quarterFilter === 'all' || q === quarterFilter) &&
-          (countryFilter === 'all' || c === countryFilter) &&
-          (roleFilter === 'all' || r === roleFilter);
+      const backdrop = document.getElementById('ve-detail-backdrop');
+      const closeBtn = document.getElementById('ve-detail-close');
+      const detailTitle = document.getElementById('ve-detail-title');
+      const detailSub = document.getElementById('ve-detail-sub');
+      const detailMeta = document.getElementById('ve-detail-meta');
+      const detailTbody = document.getElementById('ve-detail-tbody');
+      const detailStatActs = document.getElementById('ve-detail-stat-acts');
+      const detailStatHc = document.getElementById('ve-detail-stat-hc');
+      const detailStatHours = document.getElementById('ve-detail-stat-hours');
 
-        if (matches) {
-          row.classList.remove('ve-hidden');
-          visibleCount += 1;
-          sumActs += acts;
-          sumHc += hc;
-          sumHours += hours;
+      const filters = {
+        quarter: 'all',
+        country: 'all',
+        role: 'all',
+        search: ''
+      };
+
+      function applyFilters() {
+        let totalRows = 0;
+        let totalActs = 0;
+        let totalHc = 0;
+        let totalHours = 0;
+        const searchLower = filters.search.trim().toLowerCase();
+
+        rows.forEach(row => {
+          const q = row.dataset.quarter;
+          const c = row.dataset.country;
+          const r = row.dataset.role;
+          const text = row.textContent.toLowerCase();
+
+          let visible = true;
+          if (filters.quarter !== 'all' && filters.quarter !== q) visible = false;
+          if (filters.country !== 'all' && filters.country !== c) visible = false;
+          if (filters.role !== 'all' && filters.role !== r) visible = false;
+          if (searchLower && !text.includes(searchLower)) visible = false;
+
+          if (visible) {
+            row.style.display = '';
+            totalRows += 1;
+            totalActs += Number(row.dataset.acts || 0);
+            totalHc += Number(row.dataset.hc || 0);
+            totalHours += Number(row.dataset.hours || 0);
+          } else {
+            row.style.display = 'none';
+          }
+        });
+
+        statRowsEl.textContent = totalRows;
+        statActsEl.textContent = totalActs;
+        statHcEl.textContent = totalHc;
+        statHoursEl.textContent = totalHours;
+      }
+
+      // Фильтры
+      document.querySelectorAll('[data-filter-type]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const type = btn.dataset.filterType;
+          const value = btn.dataset.filterValue;
+
+          document.querySelectorAll('[data-filter-type="' + type + '"]').forEach(b => {
+            b.classList.remove('ve-active');
+          });
+          btn.classList.add('ve-active');
+
+          filters[type] = value;
+          applyFilters();
+        });
+      });
+
+      // Поиск
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          filters.search = searchInput.value || '';
+          applyFilters();
+        });
+      }
+
+      // Открытие модалки
+      function openDetail(row) {
+        const q = row.dataset.quarter;
+        const c = row.dataset.country;
+        const r = row.dataset.role;
+        const key = q + '|' + c + '|' + r;
+        const items = (DETAIL_DATA && DETAIL_DATA[key]) || [];
+
+        const goal = (row.cells[3] && row.cells[3].textContent.trim()) || '';
+        const topics = (row.cells[4] && row.cells[4].textContent.trim()) || '';
+        const problems = (row.cells[5] && row.cells[5].textContent.trim()) || '';
+
+        detailTitle.textContent = q + ' · ' + c + ' · ' + r;
+        detailSub.textContent = goal;
+        detailMeta.textContent = topics ? ('Темы: ' + topics) : problems ? ('Проблемы: ' + problems) : '';
+
+        const acts = Number(row.dataset.acts || 0);
+        const hc = Number(row.dataset.hc || 0);
+        const hours = Number(row.dataset.hours || 0);
+        detailStatActs.textContent = acts;
+        detailStatHc.textContent = hc;
+        detailStatHours.textContent = hours;
+
+        detailTbody.innerHTML = '';
+        if (!items.length) {
+          const tr = document.createElement('tr');
+          const td = document.createElement('td');
+          td.colSpan = 8;
+          td.textContent = 'Нет записей в детальном плане для этой комбинации.';
+          tr.appendChild(td);
+          detailTbody.appendChild(tr);
         } else {
-          row.classList.add('ve-hidden');
+          items.forEach(item => {
+            const tr = document.createElement('tr');
+
+            function makeCell(text) {
+              const td = document.createElement('td');
+              td.textContent = text != null ? String(text) : '';
+              return td;
+            }
+
+            tr.appendChild(makeCell(item.date || ''));
+            tr.appendChild(makeCell(item.track || ''));
+            tr.appendChild(makeCell(item.activity || ''));
+            tr.appendChild(makeCell(item.format || ''));
+            tr.appendChild(makeCell(item.duration != null ? item.duration : ''));
+            tr.appendChild(makeCell(item.hc_plan != null ? item.hc_plan : ''));
+            tr.appendChild(makeCell(item.hours != null ? item.hours : ''));
+            tr.appendChild(makeCell(item.description || ''));
+            detailTbody.appendChild(tr);
+          });
+        }
+
+        backdrop.classList.add('ve-open');
+      }
+
+      tbody.addEventListener('click', (event) => {
+        const btn = event.target.closest('.ve-chip-primary');
+        if (!btn) return;
+        const row = btn.closest('tr');
+        if (!row) return;
+        openDetail(row);
+      });
+
+      function closeDetail() {
+        backdrop.classList.remove('ve-open');
+      }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', closeDetail);
+      }
+      backdrop.addEventListener('click', (event) => {
+        if (event.target === backdrop) {
+          closeDetail();
         }
       });
 
-      if (statSessions) statSessions.textContent = visibleCount;
-      if (statActs) statActs.textContent = sumActs;
-      if (statHc) statHc.textContent = sumHc;
-      if (statHours) statHours.textContent = sumHours;
-    }
-
-    function onFilterClick(e) {
-      var btn = e.target.closest('.ve-filter-btn');
-      if (!btn) return;
-      var type = btn.getAttribute('data-filter-type');
-      var val = btn.getAttribute('data-filter-value');
-      if (!type || !val) return;
-
-      if (type === 'quarter') quarterFilter = val;
-      if (type === 'country') countryFilter = val;
-      if (type === 'role') roleFilter = val;
-
-      var group = btn.parentElement;
-      if (group) {
-        Array.prototype.forEach.call(group.querySelectorAll('.ve-filter-btn'), function(b) {
-          b.classList.remove('ve-active');
-        });
-      }
-      btn.classList.add('ve-active');
-
       applyFilters();
-    }
-
-    var filterContainers = document.querySelectorAll('.ve-filter-buttons');
-    filterContainers.forEach(function(fc) {
-      fc.addEventListener('click', onFilterClick);
     });
-
-    applyFilters();
-
-    /* DETAIL OVERLAY LOGIC */
-    var overlay = document.getElementById('ve-detail-overlay');
-    var closeBtn = document.getElementById('detail-close');
-
-    function openDetail(row) {
-      var q = row.querySelector('.ve-col-quarter').textContent.trim();
-      var c = row.querySelector('.ve-col-country').textContent.trim();
-      var r = row.querySelector('.ve-col-role').textContent.trim();
-      var goal = row.cells[3].textContent.trim();
-      var topics = row.cells[4].textContent.trim();
-      var problems = row.cells[5].textContent.trim();
-      var acts = row.getAttribute('data-acts') || '';
-      var hc = row.getAttribute('data-hc') || '';
-      var hours = row.getAttribute('data-hours') || '';
-
-      document.getElementById('detail-title').textContent = r + ' · ' + c + ' · ' + q;
-      document.getElementById('detail-tags').textContent = 'Блок обучения на ' + q + ' для ' + r + ' в ' + c;
-      document.getElementById('detail-goal').textContent = goal || 'Цель не заполнена в «2026 Plan».';
-      document.getElementById('detail-topics').textContent = topics || '';
-      document.getElementById('detail-problems').textContent = problems || '';
-
-      document.getElementById('detail-quarter').textContent = q;
-      document.getElementById('detail-country').textContent = c;
-      document.getElementById('detail-role').textContent = r;
-      document.getElementById('detail-acts').textContent = acts;
-      document.getElementById('detail-hc').textContent = hc;
-      document.getElementById('detail-hours').textContent = hours;
-
-      overlay.classList.add('ve-show');
-    }
-
-    function closeDetail() {
-      overlay.classList.remove('ve-show');
-    }
-
-    tbody.addEventListener('click', function(e) {
-      var chip = e.target.closest('.ve-chip');
-      if (!chip) return;
-      var row = e.target.closest('tr');
-      if (!row) return;
-      openDetail(row);
-    });
-
-    closeBtn.addEventListener('click', closeDetail);
-    overlay.addEventListener('click', function(e) {
-      if (e.target === overlay) closeDetail();
-    });
-
-  })();
-</script>
-
+  </script>
 </body>
 </html>
